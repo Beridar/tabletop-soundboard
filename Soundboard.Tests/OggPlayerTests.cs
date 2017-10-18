@@ -26,5 +26,15 @@ namespace Soundboard.Tests
 
             Subject.LoadOggFile(theOggFile);
         }
+
+        [Test]
+        [TestCase(@"example-sounds\example.ogg")]
+        public void It_can_play_an_ogg_file(string pathToOggFile)
+        {
+            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+
+            Subject.LoadOggFile(theOggFile);
+            Subject.Play();
+        }
     }
 }
