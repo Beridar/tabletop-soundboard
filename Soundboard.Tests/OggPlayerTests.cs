@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using NUnit.Framework;
 
 namespace Soundboard.Tests
@@ -24,7 +25,7 @@ namespace Soundboard.Tests
 
         private static string GetTheProjectRelativePathForThisProjectFile(string projectFileName)
         {
-            return Path.Combine(@"\projects\tabletop-soundboard\", projectFileName);
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, projectFileName);
         }
     }
 }
