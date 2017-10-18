@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.IO;
+using NUnit.Framework;
 
 namespace Soundboard.Tests
 {
@@ -11,12 +12,17 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        [TestCase(@"\projects\tabletop-soundboard\example-sounds\example.ogg")]
+        [TestCase(@"example-sounds\example.ogg")]
         public void It_can_read_an_ogg_file(string pathToOggFile)
         {
-            using (var vorbis = new NVorbis.VorbisReader(pathToOggFile))
+            using (var vorbis = new NVorbis.VorbisReader(GetTheProjectRelativePathForThisProjectFile(pathToOggFile)))
             {
             }
+        }
+
+        private static string GetTheProjectRelativePathForThisProjectFile(string projectFileName)
+        {
+            return Path.Combine(@"\projects\tabletop-soundboard\", projectFileName);
         }
     }
 }
