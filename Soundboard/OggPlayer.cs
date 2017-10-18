@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NVorbis;
 
 namespace Soundboard
 {
@@ -10,5 +11,11 @@ namespace Soundboard
 
     public class OggPlayer : IOggPlayer
     {
+        private NVorbis.VorbisReader reader;
+
+        public void LoadOggFile(string theOggFile)
+        {
+            reader = new VorbisReader(theOggFile);
+        }
     }
 }
