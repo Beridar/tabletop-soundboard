@@ -54,6 +54,9 @@
     <Reference Include="NAudio, Version=1.8.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NAudio.1.8.3\lib\net35\NAudio.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio.Vorbis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Vorbis.1.0.0.0\lib\net35\NAudio.Vorbis.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.8.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
