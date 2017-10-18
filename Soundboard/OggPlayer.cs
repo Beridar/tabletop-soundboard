@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NVorbis;
 
 namespace Soundboard
 {
-    public interface IOggPlayer { }
+    public interface IOggPlayer
+    {
+    }
 
     public class OggPlayer : IOggPlayer, IDisposable
     {
-        private NVorbis.VorbisReader reader;
+        private VorbisReader reader;
 
         public void LoadOggFile(string theOggFile)
         {

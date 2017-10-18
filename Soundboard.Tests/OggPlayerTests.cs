@@ -13,6 +13,11 @@ namespace Soundboard.Tests
         {
         }
 
+        private static string GetTheProjectRelativePathForThisProjectFile(string projectFileName)
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, projectFileName);
+        }
+
         [Test]
         [TestCase(@"example-sounds\example.ogg")]
         public void It_can_load_an_ogg_file(string pathToOggFile)
@@ -20,11 +25,6 @@ namespace Soundboard.Tests
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
 
             Subject.LoadOggFile(theOggFile);
-        }
-
-        private static string GetTheProjectRelativePathForThisProjectFile(string projectFileName)
-        {
-            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, projectFileName);
         }
     }
 }
