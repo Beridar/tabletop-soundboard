@@ -20,5 +20,10 @@ namespace Soundboard
         {
             reader?.Dispose();
         }
+
+        public void Play()
+        {
+            reader.
+        }
     }
 }
