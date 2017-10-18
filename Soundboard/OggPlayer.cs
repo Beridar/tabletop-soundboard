@@ -23,7 +23,7 @@ namespace Soundboard
 
         public void Play()
         {
-            reader.
+            throw new NotImplementedException();
         }
     }
 }
