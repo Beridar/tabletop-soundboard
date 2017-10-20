@@ -8,7 +8,7 @@ namespace Soundboard
 {
     public interface IOggPlayer
     {
-        void Play();
+        Task Play();
         void PlayToCompletion();
     }
 
@@ -26,7 +26,7 @@ namespace Soundboard
             reader?.Dispose();
         }
 
-        public async void Play()
+        public async Task Play()
         {
             using (var waveOut = new NAudio.Wave.WaveOutEvent())
             {
@@ -43,7 +43,7 @@ namespace Soundboard
 
         public async void PlayToCompletion()
         {
-            throw new NotImplementedException();
+            await Play();
         }
     }
 }
