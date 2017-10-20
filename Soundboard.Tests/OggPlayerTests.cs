@@ -2,7 +2,9 @@
 using System.IO;
 using AutoMoq.Helpers;
 using Moq;
+using NAudio.Wave;
 using NUnit.Framework;
+using Should;
 
 namespace Soundboard.Tests
 {
@@ -46,6 +48,8 @@ namespace Soundboard.Tests
 
             Subject.LoadOggFile(theOggFile);
             Subject.PlayToCompletion();
+
+            Subject.CurrentPlaybackState.ShouldBeSameAs(PlaybackState.Stopped);
         }
 
         [Test]
