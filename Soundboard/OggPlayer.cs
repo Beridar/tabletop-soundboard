@@ -5,6 +5,7 @@ namespace Soundboard
 {
     public interface IOggPlayer
     {
+        void Play();
     }
 
     public class OggPlayer : IOggPlayer, IDisposable
