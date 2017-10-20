@@ -64,6 +64,8 @@ namespace Soundboard.Tests
             Subject.Play();
             System.Threading.Thread.Sleep(500);
             Subject.Stop();
+
+            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
         }
     }
 }
