@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using NAudio.Vorbis;
 using NAudio.Wave;
 using NVorbis;
@@ -24,15 +25,18 @@ namespace Soundboard
             reader?.Dispose();
         }
 
-        public void Play()
+        public async void Play()
         {
             using (var waveOut = new NAudio.Wave.WaveOutEvent())
             {
                 waveOut.Init(reader);
                 waveOut.Play();
 
-                while(waveOut.PlaybackState == PlaybackState.Playing)
-                    System.Threading.Thread.Sleep(50);
+                await Task.Run(() =>
+                {
+                    while (waveOut.PlaybackState == PlaybackState.Playing)
+                        System.Threading.Thread.Sleep(50);
+                });
             }
         }
     }
