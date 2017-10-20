@@ -10,6 +10,8 @@ namespace Soundboard
     {
         Task Play();
         void PlayToCompletion();
+        void Stop();
+        PlaybackState CurrentPlaybackState { get; }
     }
 
     public class OggPlayer : IOggPlayer, IDisposable
@@ -46,6 +48,11 @@ namespace Soundboard
 
             while (player.PlaybackState == PlaybackState.Playing)
                 System.Threading.Thread.Sleep(50);
+        }
+
+        public void Stop()
+        {
+            player.Stop();
         }
     }
 }

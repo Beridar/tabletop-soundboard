@@ -55,7 +55,7 @@ namespace Soundboard.Tests
 
             Subject.LoadOggFile(theOggFile);
             Subject.Play();
-            System.Threading.Thread.Sleep(250);
+            System.Threading.Thread.Sleep(500);
             Subject.Stop();
         }
     }
