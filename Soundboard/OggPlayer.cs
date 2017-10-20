@@ -32,12 +32,6 @@ namespace Soundboard
             {
                 waveOut.Init(reader);
                 waveOut.Play();
-
-                await Task.Run(() =>
-                {
-                    while (waveOut.PlaybackState == PlaybackState.Playing)
-                        System.Threading.Thread.Sleep(50);
-                });
             }
         }
 
