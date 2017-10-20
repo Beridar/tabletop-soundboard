@@ -1,4 +1,5 @@
 ﻿using System;
+using NAudio.Vorbis;
 using NVorbis;
 
 namespace Soundboard
@@ -10,11 +11,11 @@ namespace Soundboard
 
     public class OggPlayer : IOggPlayer, IDisposable
     {
-        private VorbisReader reader;
+        private VorbisWaveReader reader;
 
         public void LoadOggFile(string theOggFile)
         {
-            reader = new VorbisReader(theOggFile);
+            reader = new VorbisWaveReader(theOggFile);
         }
 
         public void Dispose()
@@ -24,7 +25,11 @@ namespace Soundboard
 
         public void Play()
         {
-            throw new NotImplementedException();
+            using (var waveOut = new NAudio.Wave.WaveOutEvent())
+            {
+                waveOut.Init(reader);
+                waveOut.Play();
+            }
         }
     }
 }
