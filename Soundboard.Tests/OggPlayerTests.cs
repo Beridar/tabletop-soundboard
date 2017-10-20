@@ -38,6 +38,8 @@ namespace Soundboard.Tests
 
             Subject.LoadOggFile(theOggFile);
             Subject.Play();
+
+            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
         }
 
         [Test]
