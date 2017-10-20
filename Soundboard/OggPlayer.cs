@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using NAudio.Vorbis;
 using NAudio.Wave;
-using NVorbis;
 
 namespace Soundboard
 {
@@ -29,7 +29,7 @@ namespace Soundboard
 
         public void Dispose()
         {
-            if(player?.PlaybackState == PlaybackState.Playing)
+            if (player?.PlaybackState == PlaybackState.Playing)
                 player?.Stop();
 
             reader?.Dispose();
@@ -47,7 +47,7 @@ namespace Soundboard
             Play();
 
             while (player.PlaybackState == PlaybackState.Playing)
-                System.Threading.Thread.Sleep(50);
+                Thread.Sleep(50);
         }
 
         public void Stop()

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using AutoMoq.Helpers;
-using Moq;
 using NAudio.Wave;
 using NUnit.Framework;
 using Should;
@@ -62,7 +62,7 @@ namespace Soundboard.Tests
 
             Subject.LoadOggFile(theOggFile);
             Subject.Play();
-            System.Threading.Thread.Sleep(500);
+            Thread.Sleep(500);
             Subject.Stop();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
