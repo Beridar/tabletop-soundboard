@@ -49,7 +49,7 @@ namespace Soundboard.Tests
             Subject.LoadOggFile(theOggFile);
             Subject.PlayToCompletion();
 
-            Subject.CurrentPlaybackState.ShouldBeSameAs(PlaybackState.Stopped);
+            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
         }
 
         [Test]
