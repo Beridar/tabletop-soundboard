@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using AutoMoq.Helpers;
+using Moq;
 using NUnit.Framework;
 
 namespace Soundboard.Tests
