@@ -46,5 +46,17 @@ namespace Soundboard.Tests
             Subject.LoadOggFile(theOggFile);
             Subject.PlayToCompletion();
         }
+
+        [Test]
+        [TestCase(@"example-sounds\example.ogg")]
+        public void It_can_stop_playback_before_playback_is_complete(string pathToOggFile)
+        {
+            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+
+            Subject.LoadOggFile(theOggFile);
+            Subject.Play();
+            System.Threading.Thread.Sleep(250);
+            Subject.Stop();
+        }
     }
 }
