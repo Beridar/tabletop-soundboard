@@ -9,6 +9,7 @@ namespace Soundboard
     public interface IOggPlayer
     {
         void Play();
+        void PlayToCompletion();
     }
 
     public class OggPlayer : IOggPlayer, IDisposable
@@ -38,6 +39,11 @@ namespace Soundboard
                         System.Threading.Thread.Sleep(50);
                 });
             }
+        }
+
+        public async void PlayToCompletion()
+        {
+            throw new NotImplementedException();
         }
     }
 }

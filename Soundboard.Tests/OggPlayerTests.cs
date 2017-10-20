@@ -36,5 +36,15 @@ namespace Soundboard.Tests
             Subject.LoadOggFile(theOggFile);
             Subject.Play();
         }
+
+        [Test]
+        [TestCase(@"example-sounds\example.ogg")]
+        public void It_can_block_until_playback_is_complete(string pathToOggFile)
+        {
+            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+
+            Subject.LoadOggFile(theOggFile);
+            Subject.PlayToCompletion();
+        }
     }
 }
