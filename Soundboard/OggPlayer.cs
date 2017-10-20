@@ -1,5 +1,6 @@
 ﻿using System;
 using NAudio.Vorbis;
+using NAudio.Wave;
 using NVorbis;
 
 namespace Soundboard
@@ -29,6 +30,9 @@ namespace Soundboard
             {
                 waveOut.Init(reader);
                 waveOut.Play();
+
+                while(waveOut.PlaybackState == PlaybackState.Playing)
+                    System.Threading.Thread.Sleep(50);
             }
         }
     }
