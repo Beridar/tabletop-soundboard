@@ -15,10 +15,12 @@ namespace Soundboard
     public class OggPlayer : IOggPlayer, IDisposable
     {
         private VorbisWaveReader reader;
+        private WaveOutEvent player;
 
         public void LoadOggFile(string theOggFile)
         {
             reader = new VorbisWaveReader(theOggFile);
+            player = new WaveOutEvent();
         }
 
         public void Dispose()
@@ -28,11 +30,8 @@ namespace Soundboard
 
         public async Task Play()
         {
-            using (var waveOut = new NAudio.Wave.WaveOutEvent())
-            {
-                waveOut.Init(reader);
-                waveOut.Play();
-            }
+            player.Init(reader);
+            player.Play();
         }
 
         public void PlayToCompletion()
