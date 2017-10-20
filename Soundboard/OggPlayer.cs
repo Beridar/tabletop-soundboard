@@ -19,12 +19,17 @@ namespace Soundboard
 
         public void LoadOggFile(string theOggFile)
         {
+            Dispose();
+
             reader = new VorbisWaveReader(theOggFile);
             player = new WaveOutEvent();
         }
 
         public void Dispose()
         {
+            if(player?.PlaybackState == PlaybackState.Playing)
+                player?.Stop();
+
             reader?.Dispose();
             player?.Dispose();
         }
