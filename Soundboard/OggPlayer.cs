@@ -26,6 +26,7 @@ namespace Soundboard
         public void Dispose()
         {
             reader?.Dispose();
+            player?.Dispose();
         }
 
         public async Task Play()
