@@ -37,6 +37,9 @@ namespace Soundboard
         public void PlayToCompletion()
         {
             Play();
+
+            while (player.PlaybackState == PlaybackState.Playing)
+                System.Threading.Thread.Sleep(50);
         }
     }
 }
