@@ -54,5 +54,7 @@ namespace Soundboard
         {
             player.Stop();
         }
+
+        public PlaybackState CurrentPlaybackState => player?.PlaybackState ?? PlaybackState.Stopped;
     }
 }
