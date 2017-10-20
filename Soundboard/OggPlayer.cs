@@ -35,9 +35,9 @@ namespace Soundboard
             }
         }
 
-        public async void PlayToCompletion()
+        public void PlayToCompletion()
         {
-            await Play();
+            Play();
         }
     }
 }
