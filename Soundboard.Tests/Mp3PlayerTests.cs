@@ -22,7 +22,7 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        [TestCase(@"example-sounds\example.ogg")]
+        [TestCase(@"example-sounds\mpthreetest.mp3")]
         public void It_can_load_an_ogg_file(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
@@ -31,7 +31,7 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        [TestCase(@"example-sounds\example.ogg")]
+        [TestCase(@"example-sounds\mpthreetest.mp3")]
         public void It_can_play_an_ogg_file(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
@@ -43,7 +43,7 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        [TestCase(@"example-sounds\example.ogg")]
+        [TestCase(@"example-sounds\mpthreetest.mp3")]
         public void It_can_block_until_playback_is_complete(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
@@ -55,7 +55,7 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        [TestCase(@"example-sounds\example.ogg")]
+        [TestCase(@"example-sounds\mpthreetest.mp3")]
         public void It_can_stop_playback_before_playback_is_complete(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
