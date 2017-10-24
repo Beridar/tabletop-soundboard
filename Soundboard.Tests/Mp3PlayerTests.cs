@@ -23,7 +23,7 @@ namespace Soundboard.Tests
 
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
-        public void It_can_load_an_ogg_file(string pathToSoundFile)
+        public void It_can_load_an_mp3_file(string pathToSoundFile)
         {
             var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
@@ -32,7 +32,7 @@ namespace Soundboard.Tests
 
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
-        public void It_can_play_an_ogg_file(string pathToSoundFile)
+        public void It_can_play_an_mp3_file(string pathToSoundFile)
         {
             var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
