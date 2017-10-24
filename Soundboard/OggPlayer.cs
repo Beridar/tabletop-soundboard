@@ -15,11 +15,11 @@ namespace Soundboard
         private VorbisWaveReader reader;
         private WaveOutEvent player;
 
-        public void LoadOggFile(string theOggFile)
+        public void LoadFile(string filename)
         {
             Dispose();
 
-            reader = new VorbisWaveReader(theOggFile);
+            reader = new VorbisWaveReader(filename);
             player = new WaveOutEvent();
         }
 
