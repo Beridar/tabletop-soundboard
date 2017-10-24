@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using NAudio.Wave;
 
 namespace Soundboard
@@ -7,7 +8,7 @@ namespace Soundboard
     {
     }
 
-    public class Mp3Player : IMp3Player
+    public class Mp3Player : IMp3Player, IDisposable
     {
         private WaveOutEvent player;
 
@@ -27,5 +28,10 @@ namespace Soundboard
         }
 
         public PlaybackState CurrentPlaybackState => player?.PlaybackState ?? PlaybackState.Paused;
+
+        public void Dispose()
+        {
+            player?.Dispose();
+        }
     }
 }
