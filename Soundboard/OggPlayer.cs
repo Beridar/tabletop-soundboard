@@ -10,7 +10,7 @@ namespace Soundboard
     {
     }
 
-    public class OggPlayer : IOggPlayer, IDisposable
+    public class OggPlayer : IOggPlayer
     {
         private VorbisWaveReader reader;
         private WaveOutEvent player;

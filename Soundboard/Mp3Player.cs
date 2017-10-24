@@ -8,7 +8,7 @@ namespace Soundboard
     {
     }
 
-    public class Mp3Player : IMp3Player, IDisposable
+    public class Mp3Player : IMp3Player
     {
         private WaveOutEvent player;
 
