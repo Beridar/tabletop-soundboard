@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mp3PlayerTests.cs" />
     <Compile Include="NVorbisTests\VorbisReaderTests.cs" />
     <Compile Include="OggPlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
