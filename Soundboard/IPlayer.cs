@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using NAudio.Wave;
 
 namespace Soundboard
 {
-    public interface IPlayer
+    public interface IPlayer : IDisposable
     {
         Task Play();
         void PlayToCompletion();
