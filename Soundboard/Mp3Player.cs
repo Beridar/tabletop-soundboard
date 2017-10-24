@@ -12,6 +12,11 @@ namespace Soundboard
     {
         private WaveOutEvent player;
 
+        public void LoadFile(string filename)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task Play()
         {
             throw new System.NotImplementedException();
