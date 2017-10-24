@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using NAudio.Vorbis;
+﻿using NAudio.Vorbis;
 using NAudio.Wave;
 
 namespace Soundboard
