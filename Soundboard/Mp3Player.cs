@@ -9,6 +9,8 @@ namespace Soundboard
 
     public class Mp3Player : IMp3Player
     {
+        private WaveOutEvent player;
+
         public Task Play()
         {
             throw new System.NotImplementedException();
@@ -24,6 +26,6 @@ namespace Soundboard
             throw new System.NotImplementedException();
         }
 
-        public PlaybackState CurrentPlaybackState { get; }
+        public PlaybackState CurrentPlaybackState => player?.PlaybackState ?? PlaybackState.Paused;
     }
 }
