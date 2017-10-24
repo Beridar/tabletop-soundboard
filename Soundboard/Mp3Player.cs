@@ -15,9 +15,10 @@ namespace Soundboard
 
         public void LoadFile(string filename)
         {
+            Dispose();
+
             reader = new Mp3FileReader(filename);
             player = new WaveOutEvent();
-            player.Init(reader);
         }
 
         public Task Play()
