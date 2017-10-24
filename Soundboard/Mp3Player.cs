@@ -11,13 +11,13 @@ namespace Soundboard
     public class Mp3Player : IMp3Player
     {
         private WaveOutEvent player;
-        private Mp3FileReader mp3FileReader;
+        private Mp3FileReader reader;
 
         public void LoadFile(string filename)
         {
-            mp3FileReader = new Mp3FileReader(filename);
+            reader = new Mp3FileReader(filename);
             player = new WaveOutEvent();
-            player.Init(mp3FileReader);
+            player.Init(reader);
         }
 
         public Task Play()
@@ -40,7 +40,7 @@ namespace Soundboard
         public void Dispose()
         {
             player?.Dispose();
-            mp3FileReader?.Dispose();
+            reader?.Dispose();
         }
     }
 }
