@@ -10,11 +10,8 @@ namespace Soundboard
     {
     }
 
-    public class OggPlayer : IOggPlayer
+    public class OggPlayer : Player, IOggPlayer
     {
-        private VorbisWaveReader reader;
-        private WaveOutEvent player;
-
         public void LoadFile(string filename)
         {
             Dispose();
@@ -22,35 +19,5 @@ namespace Soundboard
             reader = new VorbisWaveReader(filename);
             player = new WaveOutEvent();
         }
-
-        public void Dispose()
-        {
-            if (player?.PlaybackState == PlaybackState.Playing)
-                player?.Stop();
-
-            reader?.Dispose();
-            player?.Dispose();
-        }
-
-        public async Task Play()
-        {
-            player.Init(reader);
-            player.Play();
-        }
-
-        public void PlayToCompletion()
-        {
-            Play();
-
-            while (player.PlaybackState == PlaybackState.Playing)
-                Thread.Sleep(50);
-        }
-
-        public void Stop()
-        {
-            player.Stop();
-        }
-
-        public PlaybackState CurrentPlaybackState => player?.PlaybackState ?? PlaybackState.Stopped;
     }
 }
