@@ -23,18 +23,18 @@ namespace Soundboard.Tests
 
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
-        public void It_can_load_an_ogg_file(string pathToOggFile)
+        public void It_can_load_an_ogg_file(string pathToSoundFile)
         {
-            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
             Subject.LoadFile(theOggFile);
         }
 
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
-        public void It_can_play_an_ogg_file(string pathToOggFile)
+        public void It_can_play_an_ogg_file(string pathToSoundFile)
         {
-            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
             Subject.LoadFile(theOggFile);
             Subject.Play();
@@ -44,9 +44,9 @@ namespace Soundboard.Tests
 
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
-        public void It_can_block_until_playback_is_complete(string pathToOggFile)
+        public void It_can_block_until_playback_is_complete(string pathToSoundFile)
         {
-            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
             Subject.LoadFile(theOggFile);
             Subject.PlayToCompletion();
@@ -56,9 +56,9 @@ namespace Soundboard.Tests
 
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
-        public void It_can_stop_playback_before_playback_is_complete(string pathToOggFile)
+        public void It_can_stop_playback_before_playback_is_complete(string pathToSoundFile)
         {
-            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
             Subject.LoadFile(theOggFile);
             Subject.Play();
