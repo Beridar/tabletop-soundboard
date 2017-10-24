@@ -89,6 +89,7 @@
     <Content Include="example-sounds\example.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="example-sounds\mpthreetest.mp3" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
