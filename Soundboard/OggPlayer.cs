@@ -6,12 +6,8 @@ using NAudio.Wave;
 
 namespace Soundboard
 {
-    public interface IOggPlayer
+    public interface IOggPlayer : IPlayer
     {
-        Task Play();
-        void PlayToCompletion();
-        void Stop();
-        PlaybackState CurrentPlaybackState { get; }
     }
 
     public class OggPlayer : IOggPlayer, IDisposable
