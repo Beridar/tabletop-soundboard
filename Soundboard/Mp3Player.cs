@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using NAudio.Wave;
 
@@ -21,19 +22,23 @@ namespace Soundboard
             player = new WaveOutEvent();
         }
 
-        public Task Play()
+        public async Task Play()
         {
-            throw new System.NotImplementedException();
+            player.Init(reader);
+            player.Play();
         }
 
         public void PlayToCompletion()
         {
-            throw new System.NotImplementedException();
+            Play();
+
+            while (player.PlaybackState == PlaybackState.Playing)
+                Thread.Sleep(50);
         }
 
         public void Stop()
         {
-            throw new System.NotImplementedException();
+            player.Stop();
         }
 
         public PlaybackState CurrentPlaybackState => player?.PlaybackState ?? PlaybackState.Paused;
