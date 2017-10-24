@@ -38,6 +38,7 @@ namespace Soundboard
         public void Dispose()
         {
             player?.Dispose();
+            mp3FileReader?.Dispose();
         }
     }
 }
