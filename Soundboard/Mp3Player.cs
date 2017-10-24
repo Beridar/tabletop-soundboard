@@ -1,19 +1,18 @@
-﻿using NAudio.Vorbis;
-using NAudio.Wave;
+﻿using NAudio.Wave;
 
 namespace Soundboard
 {
-    public interface IOggPlayer : IPlayer
+    public interface IMp3Player : IPlayer
     {
     }
 
-    public class OggPlayer : Player, IOggPlayer
+    public class Mp3Player : Player, IMp3Player
     {
         public override void LoadFile(string filename)
         {
             Dispose();
 
-            reader = new VorbisWaveReader(filename);
+            reader = new Mp3FileReader(filename);
             player = new WaveOutEvent();
         }
     }

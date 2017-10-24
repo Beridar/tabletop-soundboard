@@ -27,7 +27,7 @@ namespace Soundboard.Tests
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
 
-            Subject.LoadOggFile(theOggFile);
+            Subject.LoadFile(theOggFile);
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace Soundboard.Tests
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
 
-            Subject.LoadOggFile(theOggFile);
+            Subject.LoadFile(theOggFile);
             Subject.Play();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
@@ -48,7 +48,7 @@ namespace Soundboard.Tests
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
 
-            Subject.LoadOggFile(theOggFile);
+            Subject.LoadFile(theOggFile);
             Subject.PlayToCompletion();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
@@ -60,7 +60,7 @@ namespace Soundboard.Tests
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
 
-            Subject.LoadOggFile(theOggFile);
+            Subject.LoadFile(theOggFile);
             Subject.Play();
             Thread.Sleep(500);
             Subject.Stop();
