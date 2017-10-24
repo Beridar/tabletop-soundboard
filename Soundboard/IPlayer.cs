@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using NAudio.Wave;
 
@@ -15,28 +16,39 @@ namespace Soundboard
 
     public abstract class Player : IPlayer
     {
+        protected IWaveProvider reader;
+        protected WaveOutEvent player;
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (player?.PlaybackState == PlaybackState.Playing)
+                player?.Stop();
+
+            reader?.Dispose();
+            player?.Dispose();
         }
 
         public abstract void LoadFile(string filename);
 
-        public Task Play()
+        public async Task Play()
         {
-            throw new NotImplementedException();
+            player.Init(reader);
+            player.Play();
         }
 
         public void PlayToCompletion()
         {
-            throw new NotImplementedException();
+            Play();
+
+            while (player.PlaybackState == PlaybackState.Playing)
+                Thread.Sleep(50);
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            player.Stop();
         }
 
-        public PlaybackState CurrentPlaybackState { get; }
+        public PlaybackState CurrentPlaybackState => player?.PlaybackState ?? PlaybackState.Stopped;
     }
 }
