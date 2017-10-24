@@ -15,7 +15,9 @@ namespace Soundboard
 
         public void LoadFile(string filename)
         {
-            throw new NotImplementedException();
+            mp3FileReader = new Mp3FileReader(filename);
+            player = new WaveOutEvent();
+            player.Init(mp3FileReader);
         }
 
         public Task Play()
