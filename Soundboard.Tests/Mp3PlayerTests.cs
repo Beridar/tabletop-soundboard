@@ -25,18 +25,18 @@ namespace Soundboard.Tests
         [TestCase(@"example-sounds\mpthreetest.mp3")]
         public void It_can_load_an_ogg_file(string pathToSoundFile)
         {
-            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
+            var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
-            Subject.LoadFile(theOggFile);
+            Subject.LoadFile(theSoundFile);
         }
 
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
         public void It_can_play_an_ogg_file(string pathToSoundFile)
         {
-            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
+            var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
-            Subject.LoadFile(theOggFile);
+            Subject.LoadFile(theSoundFile);
             Subject.Play();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
@@ -46,9 +46,9 @@ namespace Soundboard.Tests
         [TestCase(@"example-sounds\mpthreetest.mp3")]
         public void It_can_block_until_playback_is_complete(string pathToSoundFile)
         {
-            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
+            var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
-            Subject.LoadFile(theOggFile);
+            Subject.LoadFile(theSoundFile);
             Subject.PlayToCompletion();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
@@ -58,9 +58,9 @@ namespace Soundboard.Tests
         [TestCase(@"example-sounds\mpthreetest.mp3")]
         public void It_can_stop_playback_before_playback_is_complete(string pathToSoundFile)
         {
-            var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
+            var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
 
-            Subject.LoadFile(theOggFile);
+            Subject.LoadFile(theSoundFile);
             Subject.Play();
             Thread.Sleep(500);
             Subject.Stop();
