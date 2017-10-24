@@ -24,7 +24,7 @@ namespace Soundboard
             if (player?.PlaybackState == PlaybackState.Playing)
                 player?.Stop();
 
-            reader?.Dispose();
+            (reader as IDisposable)?.Dispose();
             player?.Dispose();
         }
 
