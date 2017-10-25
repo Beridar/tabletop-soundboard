@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using NAudio.Wave;
 
 namespace Soundboard
 {
@@ -16,6 +18,16 @@ namespace Soundboard
         public Soundscape()
         {
             backgroundSounds = new List<IPlayer>();
+        }
+
+        public PlaybackState CurrentPlaybackState
+        {
+            get
+            {
+                return backgroundSounds.Any(x => x.CurrentPlaybackState == PlaybackState.Playing)
+                    ? PlaybackState.Playing
+                    : PlaybackState.Paused;
+            }
         }
 
         public void AddBackgroundSound(IPlayer theBackgroundSound)
