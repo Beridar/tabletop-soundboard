@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using NAudio.Wave;
 
@@ -14,8 +15,15 @@ namespace Soundboard.Tests
         {
         }
 
-        public Task Play()
+        public async Task Play()
         {
+            lock (this)
+                CurrentPlaybackState = PlaybackState.Playing;
+
+            await Task.Run(() =>
+            {
+                Thread.Sleep(500);
+            });
         }
 
         public void PlayToCompletion()
