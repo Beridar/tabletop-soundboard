@@ -45,13 +45,19 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        public void It_should_report_its_playback_status()
+        public void Its_playback_status_should_be_playing_when_one_background_sound_is_playing()
         {
-            Subject.AddBackgroundSound(theSilenceSound.Object);
-
-            Subject.Play();
+            // Missing setup here
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
+        }
+
+        [Test]
+        public void Its_playback_status_should_be_stopped_when_no_background_sounds_are_playing()
+        {
+            // Missing setup here
+
+            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
         }
 
         [Test]
