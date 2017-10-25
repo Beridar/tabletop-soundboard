@@ -56,10 +56,12 @@ namespace Soundboard.Tests
         public void It_should_stop_all_sound_when_requested()
         {
             Subject.AddBackgroundSound(anySound.Object);
+            Subject.AddBackgroundSound(theSilenceSound.Object);
 
             Subject.Stop();
 
             anySound.Verify(x => x.Stop(), Times.AtLeastOnce());
+            theSilenceSound.Verify(x => x.Stop(), Times.AtLeastOnce());
         }
     }
 }
