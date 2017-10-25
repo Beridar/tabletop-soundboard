@@ -7,15 +7,15 @@ namespace Soundboard.Tests
 {
     public class SilencePlayer : IPlayer
     {
-        public void Dispose()
+        public virtual void Dispose()
         {
         }
 
-        public void LoadFile(string filename)
+        public virtual void LoadFile(string filename)
         {
         }
 
-        public async Task Play()
+        public virtual async Task Play()
         {
             lock (this)
                 CurrentPlaybackState = PlaybackState.Playing;
@@ -26,13 +26,13 @@ namespace Soundboard.Tests
             });
         }
 
-        public void PlayToCompletion()
+        public virtual void PlayToCompletion()
         {
             while (CurrentPlaybackState == PlaybackState.Playing)
                 Thread.Sleep(50);
         }
 
-        public void Stop()
+        public virtual void Stop()
         {
             lock (this)
                 CurrentPlaybackState = PlaybackState.Paused;
