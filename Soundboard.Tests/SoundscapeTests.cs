@@ -2,6 +2,7 @@
 using System.IO;
 using AutoMoq.Helpers;
 using Moq;
+using NAudio.Wave;
 using NUnit.Framework;
 
 namespace Soundboard.Tests
@@ -33,6 +34,14 @@ namespace Soundboard.Tests
             Subject.Play();
 
             theBackgroundSound.Verify(x => x.Play(), Times.AtLeastOnce());
+        }
+
+        [Test]
+        public void It_should_report_its_playback_status()
+        {
+            Subject.AddBackgroundSound(theBackgroundSound.Object);
+
+            Subject.CurrentPlaybackState.ShouldBe(PlaybackState.Playing);
         }
     }
 }
