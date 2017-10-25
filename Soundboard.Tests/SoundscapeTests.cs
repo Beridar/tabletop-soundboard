@@ -14,6 +14,7 @@ namespace Soundboard.Tests
     {
         private Mock<SilencePlayer> theSilenceSound;
         private Mock<IPlayer> anySound;
+        private Mock<IPlayer> anotherSound;
 
         [SetUp]
         public void Setup()
@@ -24,6 +25,7 @@ namespace Soundboard.Tests
 
             theSilenceSound = moqer.GetMock<SilencePlayer>();
             anySound = moqer.GetMock<IPlayer>();
+            anotherSound = moqer.GetMock<IPlayer>();
         }
 
         [Test]
@@ -56,12 +58,12 @@ namespace Soundboard.Tests
         public void It_should_stop_all_sound_when_requested()
         {
             Subject.AddBackgroundSound(anySound.Object);
-            Subject.AddBackgroundSound(theSilenceSound.Object);
+            Subject.AddBackgroundSound(anotherSound.Object);
 
             Subject.Stop();
 
             anySound.Verify(x => x.Stop(), Times.AtLeastOnce());
-            theSilenceSound.Verify(x => x.Stop(), Times.AtLeastOnce());
+            anotherSound.Verify(x => x.Stop(), Times.AtLeastOnce());
         }
     }
 }
