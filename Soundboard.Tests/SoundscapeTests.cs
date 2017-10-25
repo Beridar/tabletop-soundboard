@@ -13,6 +13,7 @@ namespace Soundboard.Tests
     public class SoundscapeTests : AutoMoqTestFixture<Soundscape>
     {
         private Mock<SilencePlayer> theSilenceSound;
+        private Mock<IPlayer> anySound;
 
         [SetUp]
         public void Setup()
@@ -22,6 +23,7 @@ namespace Soundboard.Tests
             var moqer = new AutoMoqer();
 
             theSilenceSound = moqer.GetMock<SilencePlayer>();
+            anySound = moqer.GetMock<IPlayer>();
         }
 
         [Test]
@@ -33,13 +35,11 @@ namespace Soundboard.Tests
         [Test]
         public void It_should_play_a_background_sound_when_told_to_play()
         {
-            var anyBackgroundSound = Mocker.GetMock<IPlayer>();
-
-            Subject.AddBackgroundSound(anyBackgroundSound.Object);
+            Subject.AddBackgroundSound(anySound.Object);
 
             Subject.Play();
 
-            anyBackgroundSound.Verify(x => x.Play(), Times.AtLeastOnce());
+            anySound.Verify(x => x.Play(), Times.AtLeastOnce());
         }
 
         [Test]
