@@ -45,7 +45,8 @@ namespace Soundboard
 
         public void Stop()
         {
-            throw new System.NotImplementedException();
+            foreach (var sound in backgroundSounds)
+                sound.Stop();
         }
     }
 }
