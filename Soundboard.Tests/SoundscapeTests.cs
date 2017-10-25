@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using AutoMoq;
 using AutoMoq.Helpers;
 using Moq;
 using NAudio.Wave;
@@ -18,7 +19,9 @@ namespace Soundboard.Tests
         {
             ResetSubject();
 
-            theBackgroundSound = new Mock<IPlayer>();
+            var moqer = new AutoMoqer();
+
+            theBackgroundSound = moqer.GetMock<IPlayer>();
         }
 
         [Test]
