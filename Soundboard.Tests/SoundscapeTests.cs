@@ -29,7 +29,7 @@ namespace Soundboard.Tests
         [Test]
         public void It_should_loop_a_background_sound()
         {
-            Subject.AddBackgroundSound(theSilenceSound.Object);
+            Subject.AddBackgroundSound(anySound.Object);
         }
 
         [Test]
@@ -55,11 +55,11 @@ namespace Soundboard.Tests
         [Test]
         public void It_should_stop_all_sound_when_requested()
         {
-            Subject.AddBackgroundSound(theSilenceSound.Object);
+            Subject.AddBackgroundSound(anySound.Object);
 
             Subject.Stop();
 
-            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
+            anySound.Verify(x => x.Stop(), Times.AtLeastOnce());
         }
     }
 }
