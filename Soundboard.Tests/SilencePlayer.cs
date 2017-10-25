@@ -23,10 +23,9 @@ namespace Soundboard.Tests
             await Task.Run(() =>
             {
                 Thread.Sleep(500);
+                lock (this)
+                    CurrentPlaybackState = PlaybackState.Stopped;
             });
-
-            lock (this)
-                CurrentPlaybackState = PlaybackState.Stopped;
         }
 
         public virtual void PlayToCompletion()
