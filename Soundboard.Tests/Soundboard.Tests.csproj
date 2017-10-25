@@ -84,6 +84,7 @@
     <Compile Include="NVorbisTests\VorbisReaderTests.cs" />
     <Compile Include="OggPlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SilencePlayer.cs" />
     <Compile Include="SoundscapeTests.cs" />
   </ItemGroup>
   <ItemGroup>
