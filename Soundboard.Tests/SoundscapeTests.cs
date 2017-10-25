@@ -4,6 +4,7 @@ using AutoMoq.Helpers;
 using Moq;
 using NAudio.Wave;
 using NUnit.Framework;
+using Should;
 
 namespace Soundboard.Tests
 {
@@ -41,7 +42,7 @@ namespace Soundboard.Tests
         {
             Subject.AddBackgroundSound(theBackgroundSound.Object);
 
-            Subject.CurrentPlaybackState.ShouldBe(PlaybackState.Playing);
+            Subject.CurrentPlaybackState.ShouldBeSameAs(PlaybackState.Playing);
         }
     }
 }
