@@ -49,5 +49,15 @@ namespace Soundboard.Tests
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
         }
+
+        [Test]
+        public void It_should_stop_all_sound_when_requested()
+        {
+            Subject.AddBackgroundSound(theBackgroundSound.Object);
+
+            Subject.Stop();
+
+            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
+        }
     }
 }
