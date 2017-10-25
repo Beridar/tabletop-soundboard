@@ -45,7 +45,9 @@ namespace Soundboard.Tests
         {
             Subject.AddBackgroundSound(theBackgroundSound.Object);
 
-            Subject.CurrentPlaybackState.ShouldBeSameAs(PlaybackState.Playing);
+            Subject.Play();
+
+            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
         }
     }
 }

@@ -5,7 +5,7 @@ using NAudio.Wave;
 
 namespace Soundboard.Tests
 {
-    internal class SilencePlayer : IPlayer
+    public class SilencePlayer : IPlayer
     {
         public void Dispose()
         {
