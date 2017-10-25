@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Soundboard
 {
-    static class GenericCollectionExtensions
+    internal static class GenericCollectionExtensions
     {
-        static T GetAnyRandomElement<T>(this IEnumerable<T> collection) where T : new()
+        internal static T GetAnyRandomElement<T>(this IEnumerable<T> collection)
         {
             return collection.Any()
                 ? collection.ElementAt(new Random().Next(collection.Count()))

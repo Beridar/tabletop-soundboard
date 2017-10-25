@@ -25,6 +25,9 @@ namespace Soundboard
 
         public void Play()
         {
+            backgroundSounds
+                .GetAnyRandomElement()
+                ?.Play();
         }
     }
 }
