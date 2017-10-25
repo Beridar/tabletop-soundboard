@@ -15,5 +15,10 @@ namespace Soundboard
         {
             backgroundSounds.Add(theBackgroundSound);
         }
+
+        public void Play()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
