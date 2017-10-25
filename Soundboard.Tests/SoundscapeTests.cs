@@ -12,7 +12,6 @@ namespace Soundboard.Tests
     [TestFixture]
     public class SoundscapeTests : AutoMoqTestFixture<Soundscape>
     {
-        private Mock<SilencePlayer> theSilenceSound;
         private Mock<IPlayer> anySound;
         private Mock<IPlayer> anotherSound;
 
@@ -22,8 +21,7 @@ namespace Soundboard.Tests
             ResetSubject();
 
             var moqer = new AutoMoqer();
-
-            theSilenceSound = moqer.GetMock<SilencePlayer>();
+            
             anySound = moqer.GetMock<IPlayer>();
             anotherSound = moqer.GetMock<IPlayer>();
         }
