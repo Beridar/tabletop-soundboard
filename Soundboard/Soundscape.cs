@@ -5,6 +5,8 @@ namespace Soundboard
 {
     public interface ISoundscape
     {
+        void AddBackgroundSound(IPlayer theBackgroundSound);
+        void Play();
     }
 
     public class Soundscape : ISoundscape
