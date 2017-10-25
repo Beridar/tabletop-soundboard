@@ -11,7 +11,12 @@ namespace Soundboard
 
     public class Soundscape : ISoundscape
     {
-        private IList<IPlayer> backgroundSounds;
+        private readonly IList<IPlayer> backgroundSounds;
+
+        public Soundscape()
+        {
+            backgroundSounds = new List<IPlayer>();
+        }
 
         public void AddBackgroundSound(IPlayer theBackgroundSound)
         {
@@ -20,7 +25,6 @@ namespace Soundboard
 
         public void Play()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
