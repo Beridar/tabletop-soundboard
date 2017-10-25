@@ -35,7 +35,7 @@ namespace Soundboard.Tests
         public virtual void Stop()
         {
             lock (this)
-                CurrentPlaybackState = PlaybackState.Paused;
+                CurrentPlaybackState = PlaybackState.Stopped;
         }
 
         public PlaybackState CurrentPlaybackState { get; private set; }

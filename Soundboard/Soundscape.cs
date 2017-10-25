@@ -27,7 +27,7 @@ namespace Soundboard
             {
                 return backgroundSounds.Any(x => x.CurrentPlaybackState == PlaybackState.Playing)
                     ? PlaybackState.Playing
-                    : PlaybackState.Paused;
+                    : PlaybackState.Stopped;
             }
         }
 
