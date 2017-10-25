@@ -9,6 +9,7 @@ namespace Soundboard
     {
         void AddBackgroundSound(IPlayer theBackgroundSound);
         void Play();
+        void Stop();
     }
 
     public class Soundscape : ISoundscape
@@ -40,6 +41,11 @@ namespace Soundboard
             backgroundSounds
                 .GetAnyRandomElement()
                 ?.Play();
+        }
+
+        public void Stop()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
