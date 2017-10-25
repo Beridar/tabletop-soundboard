@@ -24,5 +24,15 @@ namespace Soundboard.Tests
         {
             Subject.AddBackgroundSound(theBackgroundSound.Object);
         }
+
+        [Test]
+        public void It_should_play_a_background_sound_when_told_to_play()
+        {
+            Subject.AddBackgroundSound(theBackgroundSound.Object);
+
+            Subject.Play();
+
+            theBackgroundSound.Verify(x => x.Play(), Times.AtLeastOnce());
+        }
     }
 }
