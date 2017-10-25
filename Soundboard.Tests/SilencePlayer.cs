@@ -24,6 +24,9 @@ namespace Soundboard.Tests
             {
                 Thread.Sleep(500);
             });
+
+            lock (this)
+                CurrentPlaybackState = PlaybackState.Stopped;
         }
 
         public virtual void PlayToCompletion()
