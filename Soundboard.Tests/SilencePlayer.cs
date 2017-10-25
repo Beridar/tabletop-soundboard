@@ -28,10 +28,14 @@ namespace Soundboard.Tests
 
         public void PlayToCompletion()
         {
+            while (CurrentPlaybackState == PlaybackState.Playing)
+                Thread.Sleep(50);
         }
 
         public void Stop()
         {
+            lock (this)
+                CurrentPlaybackState = PlaybackState.Paused;
         }
 
         public PlaybackState CurrentPlaybackState { get; private set; }
