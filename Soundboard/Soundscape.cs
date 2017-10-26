@@ -63,5 +63,7 @@ namespace Soundboard
         {
             AddRecurringSound(soundPlayer);
         }
+
+        public IEnumerable<IPlayer> RecurringSounds => recurringSounds.ToArray();
     }
 }
