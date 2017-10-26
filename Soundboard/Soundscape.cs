@@ -10,6 +10,7 @@ namespace Soundboard
         void AddBackgroundSound(IPlayer theBackgroundSound);
         void Play();
         void Stop();
+        void AddRecurringSound(IPlayer soundPlayer);
     }
 
     public class Soundscape : ISoundscape
@@ -47,6 +48,11 @@ namespace Soundboard
         {
             foreach (var sound in backgroundSounds)
                 sound.Stop();
+        }
+
+        public void AddRecurringSound(IPlayer soundPlayer)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
