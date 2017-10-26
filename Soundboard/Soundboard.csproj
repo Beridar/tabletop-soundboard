@@ -81,6 +81,7 @@
     <Compile Include="IPlayer.cs" />
     <Compile Include="Mp3Player.cs" />
     <Compile Include="OggPlayer.cs" />
+    <Compile Include="PlaybackFrequency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Soundscape.cs" />
   </ItemGroup>
