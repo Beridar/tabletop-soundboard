@@ -17,11 +17,11 @@ namespace Soundboard
     public class Soundscape : ISoundscape
     {
         private readonly IList<IPlayer> backgroundSounds;
-        private readonly IList<IPlayer> recurringSounds;
+        public IList<IPlayer> RecurringSounds { get; }
 
         public Soundscape()
         {
-            recurringSounds = new List<IPlayer>();
+            RecurringSounds = new List<IPlayer>();
             backgroundSounds = new List<IPlayer>();
         }
 
@@ -55,7 +55,7 @@ namespace Soundboard
 
         public void AddRecurringSound(IPlayer soundPlayer)
         {
-            recurringSounds.Add(soundPlayer);
+            RecurringSounds.Add(soundPlayer);
         }
 
         public void AddRecurringSound(IPlayer soundPlayer, PlaybackFrequency playbackFrequency)
