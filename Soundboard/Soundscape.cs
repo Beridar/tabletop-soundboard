@@ -11,6 +11,7 @@ namespace Soundboard
         void Play();
         void Stop();
         void AddRecurringSound(IPlayer soundPlayer);
+        void AddRecurringSound(IPlayer soundPlayer, PlaybackFrequency playbackFrequency);
     }
 
     public class Soundscape : ISoundscape
@@ -55,6 +56,11 @@ namespace Soundboard
         public void AddRecurringSound(IPlayer soundPlayer)
         {
             recurringSounds.Add(soundPlayer);
+        }
+
+        public void AddRecurringSound(IPlayer soundPlayer, PlaybackFrequency playbackFrequency)
+        {
+            AddRecurringSound(soundPlayer);
         }
     }
 }
