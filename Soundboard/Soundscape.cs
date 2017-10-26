@@ -18,11 +18,11 @@ namespace Soundboard
     public class Soundscape : ISoundscape
     {
         private readonly IList<IPlayer> backgroundSounds;
-        private readonly IList<IPlayer> recurringSounds;
+        private readonly IList<RecurringSound> recurringSounds;
 
         public Soundscape()
         {
-            recurringSounds = new List<IPlayer>();
+            recurringSounds = new List<RecurringSound>();
             backgroundSounds = new List<IPlayer>();
         }
 
