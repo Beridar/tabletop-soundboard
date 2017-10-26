@@ -107,6 +107,12 @@ namespace Soundboard.Tests
                 anySound = moqer.GetMock<IPlayer>();
                 anotherSound = moqer.GetMock<IPlayer>();
             }
+
+            [Test]
+            public void It_should_add_a_recurring_sound()
+            {
+                Subject.AddRecurringSound(anySound);
+            }
         }
     }
 }
