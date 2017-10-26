@@ -83,6 +83,7 @@
     <Compile Include="OggPlayer.cs" />
     <Compile Include="PlaybackFrequency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecurringSound.cs" />
     <Compile Include="Soundscape.cs" />
   </ItemGroup>
   <ItemGroup>
