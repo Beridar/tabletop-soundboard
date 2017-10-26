@@ -56,12 +56,12 @@ namespace Soundboard
 
         public void AddRecurringSound(IPlayer soundPlayer)
         {
-            recurringSounds.Add(soundPlayer);
+            AddRecurringSound(soundPlayer, PlaybackFrequency.OnlyOnDemand);
         }
 
         public void AddRecurringSound(IPlayer soundPlayer, PlaybackFrequency playbackFrequency)
         {
-            AddRecurringSound(soundPlayer);
+            recurringSounds.Add(soundPlayer);
         }
 
         public IEnumerable<IPlayer> RecurringSounds => recurringSounds.ToArray();
