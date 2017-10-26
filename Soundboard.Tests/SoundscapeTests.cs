@@ -45,7 +45,12 @@ namespace Soundboard.Tests
         [Test]
         public void Its_playback_status_should_be_playing_when_one_background_sound_is_playing()
         {
-            // Missing setup here
+            anySound
+                .Setup(x => x.CurrentPlaybackState)
+                .Returns(PlaybackState.Playing);
+
+            Subject.AddBackgroundSound(anySound.Object);
+            Subject.Play();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
         }
