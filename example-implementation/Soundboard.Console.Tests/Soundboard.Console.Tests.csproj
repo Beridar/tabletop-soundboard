@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Soundboard.Console\Soundboard.Console.csproj">
+      <Project>{d27d99fa-f402-4867-acf1-24aa433947b3}</Project>
+      <Name>Soundboard.Console</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
