@@ -136,6 +136,8 @@ namespace Soundboard.Tests
             {
                 Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
 
+                Subject.Play();
+
                 anySound.Verify(x => x.Play(), Times.AtLeastOnce());
             }
         }
