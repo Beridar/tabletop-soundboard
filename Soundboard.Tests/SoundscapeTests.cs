@@ -130,6 +130,14 @@ namespace Soundboard.Tests
                     .Any(x => x == anySound.Object)
                     .ShouldEqual(true);
             }
+
+            [Test]
+            public void It_should_play_an_infinitely_recurring_sound()
+            {
+                Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
+
+                anySound.Verify(x => x.Play(), Times.AtLeastOnce());
+            }
         }
     }
 }
