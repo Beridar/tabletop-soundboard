@@ -54,7 +54,10 @@ namespace Soundboard
 
         public void Stop()
         {
-            foreach (var sound in backgroundSounds)
+            var allSounds = backgroundSounds
+                .Concat(recurringSounds.Select(x => x.Sound));
+
+            foreach (var sound in allSounds)
                 sound.Stop();
         }
 
