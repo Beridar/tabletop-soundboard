@@ -94,6 +94,19 @@ namespace Soundboard.Tests
         [TestFixture]
         public class RecurringSoundTests : AutoMoqTestFixture<Soundscape>
         {
+            private Mock<IPlayer> anySound;
+            private Mock<IPlayer> anotherSound;
+
+            [SetUp]
+            public void Setup()
+            {
+                ResetSubject();
+
+                var moqer = new AutoMoqer();
+
+                anySound = moqer.GetMock<IPlayer>();
+                anotherSound = moqer.GetMock<IPlayer>();
+            }
         }
     }
 }
