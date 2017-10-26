@@ -64,7 +64,7 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        public void Its_playback_status_should_be_stopped_when_no_background_sounds_are_playing()
+        public void Its_playback_status_should_be_stopped_when_no_background_sounds_are_available_but_not_playing()
         {
             anySound
                 .Setup(x => x.CurrentPlaybackState)
