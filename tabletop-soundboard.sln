@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example-implementation", "e
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soundboard.Console", "example-implementation\Soundboard.Console\Soundboard.Console.csproj", "{D27D99FA-F402-4867-ACF1-24AA433947B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soundboard.Console.Tests", "example-implementation\Soundboard.Console.Tests\Soundboard.Console.Tests.csproj", "{59B16C25-B358-442A-94AA-365C75289A3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,11 +31,16 @@ Global
 		{D27D99FA-F402-4867-ACF1-24AA433947B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D27D99FA-F402-4867-ACF1-24AA433947B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D27D99FA-F402-4867-ACF1-24AA433947B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59B16C25-B358-442A-94AA-365C75289A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59B16C25-B358-442A-94AA-365C75289A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59B16C25-B358-442A-94AA-365C75289A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59B16C25-B358-442A-94AA-365C75289A3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D27D99FA-F402-4867-ACF1-24AA433947B3} = {3608DDD4-F92F-4B5C-8A6B-2BB3108D7FD0}
+		{59B16C25-B358-442A-94AA-365C75289A3D} = {3608DDD4-F92F-4B5C-8A6B-2BB3108D7FD0}
 	EndGlobalSection
 EndGlobal
