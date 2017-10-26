@@ -56,6 +56,14 @@ namespace Soundboard.Tests
         }
 
         [Test]
+        public void Its_playback_status_should_be_stopped_when_no_background_sounds_are_available_and_playback_was_requested()
+        {
+            Subject.Play();
+
+            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
+        }
+
+        [Test]
         public void Its_playback_status_should_be_stopped_when_no_background_sounds_are_playing()
         {
             anySound
