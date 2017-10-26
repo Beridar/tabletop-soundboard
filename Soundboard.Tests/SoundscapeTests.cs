@@ -140,6 +140,16 @@ namespace Soundboard.Tests
 
                 anySound.Verify(x => x.Play(), Times.AtLeastOnce());
             }
+
+            [Test]
+            public void It_should_stop_an_infinitely_recurring_sound()
+            {
+                Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
+
+                Subject.Stop();
+
+                anySound.Verify(x => x.Stop(), Times.AtLeastOnce());
+            }
         }
     }
 }
