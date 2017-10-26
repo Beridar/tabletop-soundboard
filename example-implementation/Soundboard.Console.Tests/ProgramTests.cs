@@ -8,7 +8,7 @@ namespace Soundboard.Console.Tests
         [Test]
         public void It_should_not_crash()
         {
-            Subject.Main(new string[0]);
+            Program.Main(new string[0]);
         }
     }
 }
