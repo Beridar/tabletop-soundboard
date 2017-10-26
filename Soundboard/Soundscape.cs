@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using NAudio.Wave;
 
 namespace Soundboard
@@ -46,6 +47,9 @@ namespace Soundboard
             backgroundSounds
                 .GetAnyRandomElement()
                 ?.Play();
+
+            foreach (var recurring in recurringSounds.Where(x => x.Frequency == PlaybackFrequency.LoopIndefinitely))
+                recurring.Sound.Play();
         }
 
         public void Stop()
