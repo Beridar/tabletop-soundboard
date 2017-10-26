@@ -113,6 +113,12 @@ namespace Soundboard.Tests
             {
                 Subject.AddRecurringSound(anySound);
             }
+
+            [Test]
+            public void It_should_add_a_recurring_sound_with_a_frequency()
+            {
+                Subject.AddRecurringSound(anySound, PlaybackFrequency.LoopIndefinitely);
+            }
         }
     }
 }
