@@ -64,6 +64,6 @@ namespace Soundboard
             recurringSounds.Add(new RecurringSound { Frequency = playbackFrequency, Sound = soundPlayer});
         }
 
-        public IEnumerable<IPlayer> RecurringSounds => recurringSounds.ToArray();
+        public IEnumerable<IPlayer> RecurringSounds => recurringSounds.Select(x => x.Sound);
     }
 }
