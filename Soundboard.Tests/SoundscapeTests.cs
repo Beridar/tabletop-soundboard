@@ -111,13 +111,13 @@ namespace Soundboard.Tests
             [Test]
             public void It_should_add_a_recurring_sound()
             {
-                Subject.AddRecurringSound(anySound);
+                Subject.AddRecurringSound(anySound.Object);
             }
 
             [Test]
             public void It_should_add_a_recurring_sound_with_a_frequency()
             {
-                Subject.AddRecurringSound(anySound, PlaybackFrequency.LoopIndefinitely);
+                Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
             }
         }
     }
