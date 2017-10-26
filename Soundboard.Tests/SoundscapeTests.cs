@@ -119,6 +119,16 @@ namespace Soundboard.Tests
             {
                 Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
             }
+
+            [Test]
+            public void It_should_report_what_recurring_sounds_are_available()
+            {
+                Subject.AddRecurringSound(anySound.Object);
+
+                Subject.RecurringSounds
+                    .Contains(anySound.Object)
+                    .ShouldEqual(true);
+            }
         }
     }
 }
