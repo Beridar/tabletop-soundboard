@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using AutoMoq;
 using AutoMoq.Helpers;
 using Moq;
@@ -126,7 +127,7 @@ namespace Soundboard.Tests
                 Subject.AddRecurringSound(anySound.Object);
 
                 Subject.RecurringSounds
-                    .Contains(anySound.Object)
+                    .Any(x => x == anySound.Object)
                     .ShouldEqual(true);
             }
         }
