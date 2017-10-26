@@ -27,7 +27,7 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        public void It_should_loop_a_background_sound()
+        public void It_should_add_a_background_sound()
         {
             Subject.AddBackgroundSound(anySound.Object);
         }
