@@ -51,6 +51,8 @@ namespace Soundboard
 
             foreach (var recurring in recurringSounds.Where(x => x.Frequency == PlaybackFrequency.LoopIndefinitely))
                 recurring.Sound.Play();
+            
+            KeepPlayingInfiniteSounds();
         }
 
         private void KeepPlayingInfiniteSounds()
