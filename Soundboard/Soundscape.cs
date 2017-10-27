@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using NAudio.Wave;
 
@@ -50,6 +51,23 @@ namespace Soundboard
 
             foreach (var recurring in recurringSounds.Where(x => x.Frequency == PlaybackFrequency.LoopIndefinitely))
                 recurring.Sound.Play();
+        }
+
+        private void KeepPlayingInfiniteSounds()
+        {
+            foreach (var sound in GetStoppedInfiniteSounds())
+            {
+                sound.Play();
+            }
+            Thread.Sleep(100);
+        }
+
+        private IEnumerable<IPlayer> GetStoppedInfiniteSounds()
+        {
+            return recurringSounds
+                .Where(x => x.Frequency == PlaybackFrequency.LoopIndefinitely)
+                .Where(x => x.Sound.CurrentPlaybackState == PlaybackState.Stopped)
+                .Select(x => x.Sound);
         }
 
         public void Stop()
