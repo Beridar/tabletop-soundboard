@@ -27,6 +27,9 @@ bld/
 # Visual Studio 2015 cache/options directory
 .vs/
 
+# Rider 2017.2 configuration files
+.idea/
+
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore
