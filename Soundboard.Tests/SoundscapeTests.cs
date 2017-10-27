@@ -157,7 +157,7 @@ namespace Soundboard.Tests
                 Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
                 Subject.Play();
 
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(100);
 
                 anySound.Verify(x => x.Play(), Times.AtLeast(2));
             }
