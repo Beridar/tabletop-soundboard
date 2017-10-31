@@ -23,10 +23,8 @@ namespace Soundboard.Tests
             {
                 ResetSubject();
 
-                var moqer = new AutoMoqer();
-
-                anySound = moqer.GetMock<IPlayer>();
-                anotherSound = moqer.GetMock<IPlayer>();
+                anySound = Mocked<IPlayer>();
+                anotherSound = Mocked<IPlayer>();
             }
 
             [Test]
