@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using NAudio.Wave;
 
@@ -20,11 +21,13 @@ namespace Soundboard
     {
         private readonly IList<IPlayer> backgroundSounds;
         private readonly IList<RecurringSound> recurringSounds;
+        private readonly CancellationTokenSource stopWorkersSource;
 
         public Soundscape()
         {
             recurringSounds = new List<RecurringSound>();
             backgroundSounds = new List<IPlayer>();
+            stopWorkersSource = new CancellationTokenSource();
         }
 
         public PlaybackState CurrentPlaybackState
