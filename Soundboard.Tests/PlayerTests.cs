@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading;
 using AutoMoq.Helpers;
+using Moq;
 using NAudio.Wave;
 using NUnit.Framework;
 using Should;
@@ -71,6 +72,17 @@ namespace Soundboard.Tests
             Subject.Stop();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
+        }
+
+        [Test]
+        public void It_should_not_orphan_loaded_sounds_when_disposing()
+        {
+            var sound = Mocked<ISound>();
+
+            Subject.Load(sound.Object);
+            Subject.Dispose();
+
+            sound.Verify(x => x.Dispose(), Times.AtLeastOnce());
         }
     }
 }
