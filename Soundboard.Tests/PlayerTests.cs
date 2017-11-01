@@ -39,12 +39,13 @@ namespace Soundboard.Tests
         [TestCase(@"example-sounds\example.ogg")]
         public void It_can_play_a_sound(string pathToSoundFile)
         {
-            var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
+            var theSoundFile = Mocked<ISound>().Object;
 
             Subject.Load(theSoundFile);
             Subject.Play();
 
-            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
+            Mocked<IWavePlayer>().Verify(x => x.Init(theSoundFile));
+            Mocked<IWavePlayer>().Verify(x => x.Play());
         }
 
         [Test]
