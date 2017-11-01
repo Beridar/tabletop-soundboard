@@ -14,5 +14,12 @@ namespace Soundboard
         {
             reader = new Mp3FileReader(filename);
         }
+
+        public override int Read(byte[] buffer, int offset, int count)
+        {
+            return reader.Read(buffer, offset, count);
+        }
+
+        public override WaveFormat WaveFormat { get => reader.WaveFormat; }
     }
 }
