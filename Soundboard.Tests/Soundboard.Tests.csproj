@@ -86,7 +86,6 @@
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundscapeTests.cs" />
-    <Compile Include="SoundTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="example-sounds\example.ogg">
