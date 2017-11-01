@@ -11,6 +11,12 @@ namespace Soundboard.Tests
     [TestFixture]
     public class PlayerTests : AutoMoqTestFixture<Player>
     {
+        [SetUp]
+        public void Setup()
+        {
+            ResetSubject();
+        }
+
         private static string GetTheProjectRelativePathForThisProjectFile(string projectFileName)
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, projectFileName);
