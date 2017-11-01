@@ -50,7 +50,7 @@ namespace Soundboard.Tests
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
         [TestCase(@"example-sounds\example.ogg")]
-        public void It_can_block_until_mp3_playback_is_complete(string pathToSoundFile)
+        public void It_can_block_until_playback_is_complete(string pathToSoundFile)
         {
             var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
 
@@ -63,7 +63,7 @@ namespace Soundboard.Tests
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
         [TestCase(@"example-sounds\example.ogg")]
-        public void It_can_stop_mp3_playback_before_playback_is_complete(string pathToSoundFile)
+        public void It_can_stop_playback_before_playback_is_complete(string pathToSoundFile)
         {
             var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
 
