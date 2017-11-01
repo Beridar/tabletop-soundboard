@@ -9,7 +9,7 @@ namespace Soundboard
 
     public class OggPlayer : Player, IOggPlayer
     {
-        public override void LoadFile(string filename)
+        public void LoadFile(string filename)
         {
             Dispose();
 
