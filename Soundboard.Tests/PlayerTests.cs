@@ -91,7 +91,7 @@ namespace Soundboard.Tests
             Subject.Dispose();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
-            Mocked<IPlayer>().Verify(x => x.Stop(), Times.AtLeastOnce());
+            Mocked<IWavePlayer>().Verify(x => x.Stop(), Times.AtLeastOnce());
         }
     }
 }
