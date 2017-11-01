@@ -15,10 +15,5 @@ namespace Soundboard.Tests
         public void Setup()
         {
         }
-
-        private static string GetTheProjectRelativePathForThisProjectFile(string projectFileName)
-        {
-            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, projectFileName);
-        }
     }
 }
