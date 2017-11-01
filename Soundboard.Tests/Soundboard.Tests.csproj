@@ -83,6 +83,7 @@
     <Compile Include="Mp3SoundTests.cs" />
     <Compile Include="NVorbisTests\VorbisReaderTests.cs" />
     <Compile Include="OggPlayerTests.cs" />
+    <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoundscapeTests.cs" />
     <Compile Include="SoundTests.cs" />
