@@ -9,7 +9,7 @@ using Should;
 namespace Soundboard.Tests
 {
     [TestFixture]
-    public class OggPlayerTests : AutoMoqTestFixture<OggSound>
+    public class OggSoundTests : AutoMoqTestFixture<OggSound>
     {
         [SetUp]
         public void Setup()
