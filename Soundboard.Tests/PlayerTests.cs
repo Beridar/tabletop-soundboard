@@ -34,8 +34,9 @@ namespace Soundboard.Tests
         public void It_can_block_until_mp3_playback_is_complete(string pathToSoundFile)
         {
             var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
+            var theMp3File = new Mp3Sound(theSoundFile);
 
-            Subject.LoadFile(theSoundFile);
+            Subject.Load(theMp3File);
             Subject.PlayToCompletion();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
@@ -46,8 +47,9 @@ namespace Soundboard.Tests
         public void It_can_stop_mp3_playback_before_playback_is_complete(string pathToSoundFile)
         {
             var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
+            var theMp3File = new Mp3Sound(theSoundFile);
 
-            Subject.LoadFile(theSoundFile);
+            Subject.Load(theMp3File);
             Subject.Play();
             Thread.Sleep(500);
             Subject.Stop();
@@ -60,8 +62,9 @@ namespace Soundboard.Tests
         public void It_can_load_an_ogg_file(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+            var theOggSound = new Mp3Sound(theOggFile);
 
-            Subject.LoadFile(theOggFile);
+            Subject.Load(theOggSound);
         }
 
         [Test]
@@ -69,8 +72,9 @@ namespace Soundboard.Tests
         public void It_can_play_an_ogg_file(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+            var theOggSound = new Mp3Sound(theOggFile);
 
-            Subject.LoadFile(theOggFile);
+            Subject.Load(theOggSound);
             Subject.Play();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
@@ -81,8 +85,9 @@ namespace Soundboard.Tests
         public void It_can_block_until_ogg_playback_is_complete(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+            var theOggSound = new Mp3Sound(theOggFile);
 
-            Subject.LoadFile(theOggFile);
+            Subject.Load(theOggSound);
             Subject.PlayToCompletion();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
@@ -93,8 +98,9 @@ namespace Soundboard.Tests
         public void It_can_stop_ogg_playback_before_playback_is_complete(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
+            var theOggSound = new Mp3Sound(theOggFile);
 
-            Subject.LoadFile(theOggFile);
+            Subject.Load(theOggSound);
             Subject.Play();
             Thread.Sleep(500);
             Subject.Stop();
