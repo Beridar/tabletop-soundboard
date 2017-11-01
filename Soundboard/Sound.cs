@@ -1,6 +1,6 @@
 ﻿using NAudio.Wave;
 
-namespace Soundboard.Tests
+namespace Soundboard
 {
     public class Sound : IWaveProvider
     {
