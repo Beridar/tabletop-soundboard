@@ -88,6 +88,10 @@ namespace Soundboard.Tests
         public void It_should_stop_playback_when_disposed()
         {
             Subject.Load(Mocked<ISound>().Object);
+            Mocked<IWavePlayer>()
+                .Setup(x => x.PlaybackState)
+                .Returns(PlaybackState.Playing);
+
             Subject.Dispose();
             
             Mocked<IWavePlayer>().Verify(x => x.Stop(), Times.AtLeastOnce());
