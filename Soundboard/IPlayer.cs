@@ -7,7 +7,7 @@ namespace Soundboard
 {
     public interface IPlayer : IDisposable
     {
-        void LoadFile(string filename);
+        void Load(ISound sound);
         Task Play();
         void PlayToCompletion();
         void Stop();
@@ -28,8 +28,9 @@ namespace Soundboard
             player?.Dispose();
         }
 
-        public void LoadFile(string filename)
+        public void Load(ISound sound)
         {
+            reader = sound;
             player = new WaveOutEvent();
         }
 
