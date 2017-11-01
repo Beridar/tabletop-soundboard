@@ -79,7 +79,7 @@
   <ItemGroup>
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="IPlayer.cs" />
-    <Compile Include="Mp3Player.cs" />
+    <Compile Include="Mp3Sound.cs" />
     <Compile Include="OggPlayer.cs" />
     <Compile Include="PlaybackFrequency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

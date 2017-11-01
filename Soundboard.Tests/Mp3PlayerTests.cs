@@ -9,7 +9,7 @@ using Should;
 namespace Soundboard.Tests
 {
     [TestFixture]
-    public class Mp3PlayerTests : AutoMoqTestFixture<Mp3Player>
+    public class Mp3PlayerTests : AutoMoqTestFixture<Mp3Sound>
     {
         [SetUp]
         public void Setup()

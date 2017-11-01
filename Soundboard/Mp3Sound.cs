@@ -6,7 +6,7 @@ namespace Soundboard
     {
     }
 
-    public class Mp3Player : Sound, IMp3Player
+    public class Mp3Sound : Sound, IMp3Player
     {
         public override void LoadFile(string filename)
         {
