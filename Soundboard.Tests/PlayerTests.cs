@@ -89,8 +89,7 @@ namespace Soundboard.Tests
         {
             Subject.Load(Mocked<ISound>().Object);
             Subject.Dispose();
-
-            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
+            
             Mocked<IWavePlayer>().Verify(x => x.Stop(), Times.AtLeastOnce());
         }
     }
