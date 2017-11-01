@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using AutoMoq;
 using AutoMoq.Helpers;
 using Moq;
 using NAudio.Wave;
@@ -88,12 +89,14 @@ namespace Soundboard.Tests
         [Test]
         public void It_should_stop_playback_when_disposed()
         {
-            var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
+            var sound = Mocked<ISound>();
+            var player = Mocked<IWavePlayer>();
 
-            Subject.Load(theSoundFile);
+            Subject.Load(sound.Object);
             Subject.Dispose();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
+            player.Verify(x => x.Stop(), Times.AtLeastOnce());
         }
     }
 }
