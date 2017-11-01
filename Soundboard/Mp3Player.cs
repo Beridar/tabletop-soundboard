@@ -2,11 +2,11 @@
 
 namespace Soundboard
 {
-    public interface IMp3Player : IPlayer
+    public interface IMp3Player : ISound
     {
     }
 
-    public class Mp3Player : Player, IMp3Player
+    public class Mp3Player : Sound, IMp3Player
     {
         public override void LoadFile(string filename)
         {
