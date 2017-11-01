@@ -22,6 +22,11 @@ namespace Soundboard
 
         public override WaveFormat WaveFormat => reader.WaveFormat;
 
+        public override void Dispose()
+        {
+            reader?.Dispose();
+        }
+
         public void LoadFile(string filename)
         {
             Dispose();
