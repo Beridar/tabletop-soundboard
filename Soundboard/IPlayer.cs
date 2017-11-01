@@ -36,7 +36,6 @@ namespace Soundboard
         public void Load(ISound sound)
         {
             reader = sound;
-            player = new WaveOutEvent();
         }
 
         public async Task Play()
