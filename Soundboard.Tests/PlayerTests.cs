@@ -86,8 +86,7 @@ namespace Soundboard.Tests
         }
 
         [Test]
-        [TestCase(@"example-sounds\example.ogg")]
-        public void It_should_stop_playback_when_disposed(string pathToSoundFile)
+        public void It_should_stop_playback_when_disposed()
         {
             var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
 
