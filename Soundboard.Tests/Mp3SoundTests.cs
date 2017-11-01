@@ -20,14 +20,5 @@ namespace Soundboard.Tests
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, projectFileName);
         }
-
-        [Test]
-        [TestCase(@"example-sounds\mpthreetest.mp3")]
-        public void It_can_load_an_mp3_file(string pathToSoundFile)
-        {
-            var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
-
-            Subject.LoadFile(theSoundFile);
-        }
     }
 }
