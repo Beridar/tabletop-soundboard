@@ -16,7 +16,7 @@ namespace Soundboard
 
     public class Player : IPlayer
     {
-        protected IWaveProvider reader;
+        protected ISound reader;
         protected WaveOutEvent player;
 
         public void Dispose()
@@ -24,7 +24,7 @@ namespace Soundboard
             if (player?.PlaybackState == PlaybackState.Playing)
                 player?.Stop();
 
-            (reader as IDisposable)?.Dispose();
+            reader?.Dispose();
             player?.Dispose();
         }
 
