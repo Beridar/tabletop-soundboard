@@ -8,12 +8,11 @@ namespace Soundboard
 
     public class Mp3Sound : Sound, IMp3Player
     {
-        public override void LoadFile(string filename)
-        {
-            Dispose();
+        protected Mp3FileReader reader { get; set; }
 
+        public Mp3Sound(string filename)
+        {
             reader = new Mp3FileReader(filename);
-            player = new WaveOutEvent();
         }
     }
 }
