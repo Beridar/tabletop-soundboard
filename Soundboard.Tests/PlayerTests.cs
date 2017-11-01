@@ -62,7 +62,7 @@ namespace Soundboard.Tests
         public void It_can_load_an_ogg_file(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
-            var theOggSound = new Mp3Sound(theOggFile);
+            var theOggSound = new OggSound(theOggFile);
 
             Subject.Load(theOggSound);
         }
@@ -72,7 +72,7 @@ namespace Soundboard.Tests
         public void It_can_play_an_ogg_file(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
-            var theOggSound = new Mp3Sound(theOggFile);
+            var theOggSound = new OggSound(theOggFile);
 
             Subject.Load(theOggSound);
             Subject.Play();
@@ -85,7 +85,7 @@ namespace Soundboard.Tests
         public void It_can_block_until_ogg_playback_is_complete(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
-            var theOggSound = new Mp3Sound(theOggFile);
+            var theOggSound = new OggSound(theOggFile);
 
             Subject.Load(theOggSound);
             Subject.PlayToCompletion();
@@ -98,7 +98,7 @@ namespace Soundboard.Tests
         public void It_can_stop_ogg_playback_before_playback_is_complete(string pathToOggFile)
         {
             var theOggFile = GetTheProjectRelativePathForThisProjectFile(pathToOggFile);
-            var theOggSound = new Mp3Sound(theOggFile);
+            var theOggSound = new OggSound(theOggFile);
 
             Subject.Load(theOggSound);
             Subject.Play();
