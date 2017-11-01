@@ -22,15 +22,24 @@ namespace Soundboard.Tests
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, projectFileName);
         }
 
+        private static ISound GetTheSoundImplementationForThisSoundFile(string theSoundFile)
+        {
+            if (theSoundFile.EndsWith("mp3"))
+                return new Mp3Sound(GetTheProjectRelativePathForThisProjectFile(theSoundFile));
+            if (theSoundFile.EndsWith("ogg"))
+                return new OggSound(GetTheProjectRelativePathForThisProjectFile(theSoundFile));
+
+            return null;
+        }
+
         [Test]
         [TestCase(@"example-sounds\mpthreetest.mp3")]
         [TestCase(@"example-sounds\example.ogg")]
         public void It_can_play_a_sound(string pathToSoundFile)
         {
-            var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
-            var theMp3File = new Mp3Sound(theSoundFile);
+            var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
 
-            Subject.Load(theMp3File);
+            Subject.Load(theSoundFile);
             Subject.Play();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
@@ -41,10 +50,9 @@ namespace Soundboard.Tests
         [TestCase(@"example-sounds\example.ogg")]
         public void It_can_block_until_mp3_playback_is_complete(string pathToSoundFile)
         {
-            var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
-            var theMp3File = new Mp3Sound(theSoundFile);
+            var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
 
-            Subject.Load(theMp3File);
+            Subject.Load(theSoundFile);
             Subject.PlayToCompletion();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
@@ -55,10 +63,9 @@ namespace Soundboard.Tests
         [TestCase(@"example-sounds\example.ogg")]
         public void It_can_stop_mp3_playback_before_playback_is_complete(string pathToSoundFile)
         {
-            var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
-            var theMp3File = new Mp3Sound(theSoundFile);
+            var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
 
-            Subject.Load(theMp3File);
+            Subject.Load(theSoundFile);
             Subject.Play();
             Thread.Sleep(500);
             Subject.Stop();
