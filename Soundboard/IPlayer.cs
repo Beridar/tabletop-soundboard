@@ -17,7 +17,16 @@ namespace Soundboard
     public class Player : IPlayer
     {
         protected ISound reader;
-        protected WaveOutEvent player;
+        protected IWavePlayer player;
+
+        public Player() : this(new WaveOutEvent())
+        {
+        }
+
+        public Player(IWavePlayer wavePlayer)
+        {
+            player = wavePlayer;
+        }
 
         public void Dispose()
         {

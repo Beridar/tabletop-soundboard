@@ -84,5 +84,17 @@ namespace Soundboard.Tests
 
             sound.Verify(x => x.Dispose(), Times.AtLeastOnce());
         }
+
+        [Test]
+        [TestCase(@"example-sounds\example.ogg")]
+        public void It_should_stop_playback_when_disposed(string pathToSoundFile)
+        {
+            var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
+
+            Subject.Load(theSoundFile);
+            Subject.Dispose();
+
+            Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
+        }
     }
 }
