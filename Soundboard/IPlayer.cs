@@ -19,10 +19,6 @@ namespace Soundboard
         protected ISound reader;
         protected IWavePlayer player;
 
-        public Player() : this(new WaveOutEvent())
-        {
-        }
-
         public Player(IWavePlayer wavePlayer)
         {
             player = wavePlayer;
