@@ -16,7 +16,7 @@ namespace Soundboard
 
         public Mp3Sound(string filename)
         {
-            reader = new Mp3FileReader(filename);
+            LoadFile(filename);
         }
 
         public override int Read(byte[] buffer, int offset, int count)

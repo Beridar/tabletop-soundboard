@@ -17,7 +17,7 @@ namespace Soundboard
 
         public OggSound(string filename)
         {
-            reader = new VorbisWaveReader(filename);
+            LoadFile(filename);
         }
 
         public void LoadFile(string filename)
