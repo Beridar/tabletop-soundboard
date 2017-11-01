@@ -11,6 +11,10 @@ namespace Soundboard
     {
         protected VorbisWaveReader reader { get; set; }
 
+        public OggSound()
+        {
+        }
+
         public OggSound(string filename)
         {
             reader = new VorbisWaveReader(filename);
