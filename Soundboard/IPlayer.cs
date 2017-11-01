@@ -28,7 +28,10 @@ namespace Soundboard
             player?.Dispose();
         }
 
-        public void LoadFile(string filename) { }
+        public void LoadFile(string filename)
+        {
+            player = new WaveOutEvent();
+        }
 
         public async Task Play()
         {
