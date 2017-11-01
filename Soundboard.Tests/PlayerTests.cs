@@ -21,8 +21,9 @@ namespace Soundboard.Tests
         public void It_can_play_an_mp3_file(string pathToSoundFile)
         {
             var theSoundFile = GetTheProjectRelativePathForThisProjectFile(pathToSoundFile);
+            var theMp3File = new Mp3Sound(theSoundFile);
 
-            Subject.LoadFile(theSoundFile);
+            Subject.Load(theMp3File);
             Subject.Play();
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
