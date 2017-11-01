@@ -9,12 +9,25 @@ namespace Soundboard
 
     public class OggSound : Sound, IOggSound
     {
+        protected VorbisWaveReader reader { get; set; }
+
         public void LoadFile(string filename)
         {
             Dispose();
 
             reader = new VorbisWaveReader(filename);
-            player = new WaveOutEvent();
+        }
+
+        public override int Read(byte[] buffer, int offset, int count)
+        {
+            return reader.Read(buffer, offset, count);
+        }
+
+        public override WaveFormat WaveFormat => reader.WaveFormat;
+
+        public override void Dispose()
+        {
+            reader?.Dispose();
         }
     }
 }
