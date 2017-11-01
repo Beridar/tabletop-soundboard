@@ -14,7 +14,7 @@ namespace Soundboard
         PlaybackState CurrentPlaybackState { get; }
     }
 
-    public abstract class Player : IPlayer
+    public class Player : IPlayer
     {
         protected IWaveProvider reader;
         protected WaveOutEvent player;
@@ -28,7 +28,7 @@ namespace Soundboard
             player?.Dispose();
         }
 
-        public abstract void LoadFile(string filename);
+        public void LoadFile(string filename) { }
 
         public async Task Play()
         {
