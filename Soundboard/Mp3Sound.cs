@@ -20,7 +20,7 @@ namespace Soundboard
             return reader.Read(buffer, offset, count);
         }
 
-        public override WaveFormat WaveFormat { get => reader.WaveFormat; }
+        public override WaveFormat WaveFormat => reader.WaveFormat;
 
         public void LoadFile(string filename)
         {
