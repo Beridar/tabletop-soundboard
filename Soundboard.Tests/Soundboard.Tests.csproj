@@ -80,13 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mp3PlayerTests.cs" />
+    <Compile Include="Mp3SoundTests.cs" />
     <Compile Include="NVorbisTests\VorbisReaderTests.cs" />
-    <Compile Include="OggPlayerTests.cs" />
+    <Compile Include="OggSoundTests.cs" />
+    <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sound.cs" />
     <Compile Include="SoundscapeTests.cs" />
-    <Compile Include="SoundTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="example-sounds\example.ogg">

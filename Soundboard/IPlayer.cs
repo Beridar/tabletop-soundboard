@@ -7,28 +7,36 @@ namespace Soundboard
 {
     public interface IPlayer : IDisposable
     {
-        void LoadFile(string filename);
+        void Load(ISound sound);
         Task Play();
         void PlayToCompletion();
         void Stop();
         PlaybackState CurrentPlaybackState { get; }
     }
 
-    public abstract class Player : IPlayer
+    public class Player : IPlayer
     {
-        protected IWaveProvider reader;
-        protected WaveOutEvent player;
+        protected ISound reader;
+        protected IWavePlayer player;
+
+        public Player(IWavePlayer wavePlayer)
+        {
+            player = wavePlayer;
+        }
 
         public void Dispose()
         {
             if (player?.PlaybackState == PlaybackState.Playing)
                 player?.Stop();
 
-            (reader as IDisposable)?.Dispose();
+            reader?.Dispose();
             player?.Dispose();
         }
 
-        public abstract void LoadFile(string filename);
+        public void Load(ISound sound)
+        {
+            reader = sound;
+        }
 
         public async Task Play()
         {
