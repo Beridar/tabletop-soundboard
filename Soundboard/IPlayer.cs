@@ -8,7 +8,7 @@ namespace Soundboard
     public interface IPlayer : IDisposable
     {
         void Load(ISound sound);
-        Task Play();
+        void Play();
         void PlayToCompletion();
         void Stop();
         PlaybackState CurrentPlaybackState { get; }
@@ -38,7 +38,7 @@ namespace Soundboard
             reader = sound;
         }
 
-        public async Task Play()
+        public void Play()
         {
             player.Init(reader);
             player.Play();
