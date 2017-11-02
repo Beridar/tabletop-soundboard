@@ -77,6 +77,16 @@ namespace Soundboard.Tests
         }
 
         [Test]
+        [TestCase(@"example-sounds\mpthreetest.mp3", @"example-sounds\example.ogg")]
+        public void It_should_play_two_sounds_simultaneously(string pathToSound1, string pathToSound2)
+        {
+            var sound1 = GetTheSoundImplementationForThisSoundFile(pathToSound1);
+            var sound2 = GetTheSoundImplementationForThisSoundFile(pathToSound2);
+
+            Subject.Load();
+        }
+
+        [Test]
         public void It_should_not_orphan_loaded_sounds_when_disposing()
         {
             Subject.Load(Mocked<ISound>().Object);
