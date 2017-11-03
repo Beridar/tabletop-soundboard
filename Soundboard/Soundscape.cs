@@ -64,11 +64,7 @@ namespace Soundboard
 
         public void Stop()
         {
-            var allSounds = backgroundSounds
-                .Concat(recurringSounds.Select(x => x.Sound));
-
-            foreach (var sound in allSounds)
-                sound.Stop();
+            player.Stop();
         }
 
         public void AddRecurringSound(ISound soundPlayer)
