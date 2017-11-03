@@ -78,16 +78,10 @@ namespace Soundboard.Tests
         [TestFixture]
         public class RecurringSoundTests : AutoMoqTestFixture<Soundscape>
         {
-            private Mock<IPlayer> anySound;
-            private Mock<IPlayer> anotherSound;
-
             [SetUp]
             public void Setup()
             {
                 ResetSubject();
-
-                anySound = Mocked<IPlayer>();
-                anotherSound = Mocked<IPlayer>();
             }
 
             [Test]
