@@ -87,43 +87,43 @@ namespace Soundboard.Tests
             [Test]
             public void It_should_add_a_recurring_sound()
             {
-                Subject.AddRecurringSound(anySound.Object);
+                Subject.AddRecurringSound(Mocked<ISound>().Object);
             }
 
             [Test]
             public void It_should_add_a_recurring_sound_with_a_frequency()
             {
-                Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
+                Subject.AddRecurringSound(Mocked<ISound>().Object, PlaybackFrequency.LoopIndefinitely);
             }
 
             [Test]
             public void It_should_report_what_recurring_sounds_are_available()
             {
-                Subject.AddRecurringSound(anySound.Object);
+                Subject.AddRecurringSound(Mocked<ISound>().Object);
 
                 Subject.RecurringSounds
-                    .Any(x => x == anySound.Object)
+                    .Any(x => x == Mocked<ISound>().Object)
                     .ShouldEqual(true);
             }
 
             [Test]
             public void It_should_play_an_infinitely_recurring_sound()
             {
-                Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
+                Subject.AddRecurringSound(Mocked<ISound>().Object, PlaybackFrequency.LoopIndefinitely);
 
                 Subject.Play();
 
-                anySound.Verify(x => x.Play(), Times.AtLeastOnce());
+                Mocked<ISound>().Verify(x => x.Play(), Times.AtLeastOnce());
             }
 
             [Test]
             public void It_should_stop_an_infinitely_recurring_sound()
             {
-                Subject.AddRecurringSound(anySound.Object, PlaybackFrequency.LoopIndefinitely);
+                Subject.AddRecurringSound(Mocked<ISound>().Object, PlaybackFrequency.LoopIndefinitely);
 
                 Subject.Stop();
 
-                anySound.Verify(x => x.Stop(), Times.AtLeastOnce());
+                Mocked<ISound>().Verify(x => x.Stop(), Times.AtLeastOnce());
             }
         }
     }
