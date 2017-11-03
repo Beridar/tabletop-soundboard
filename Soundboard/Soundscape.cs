@@ -9,7 +9,7 @@ namespace Soundboard
 {
     public interface ISoundscape
     {
-        void AddBackgroundSound(IPlayer theBackgroundSound);
+        void AddBackgroundSound(ISound theBackgroundSound);
         void Play();
         void Stop();
         void AddRecurringSound(ISound soundPlayer);
@@ -38,7 +38,7 @@ namespace Soundboard
 
         public PlaybackState CurrentPlaybackState => player.CurrentPlaybackState;
 
-        public void AddBackgroundSound(IPlayer theBackgroundSound)
+        public void AddBackgroundSound(ISound theBackgroundSound)
         {
             backgroundSounds.Add(theBackgroundSound);
         }
