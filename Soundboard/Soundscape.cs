@@ -36,15 +36,7 @@ namespace Soundboard
             stopWorkersSource = new CancellationTokenSource();
         }
 
-        public PlaybackState CurrentPlaybackState
-        {
-            get
-            {
-                return backgroundSounds.Any(x => x.CurrentPlaybackState == PlaybackState.Playing)
-                    ? PlaybackState.Playing
-                    : PlaybackState.Stopped;
-            }
-        }
+        public PlaybackState CurrentPlaybackState => player.CurrentPlaybackState;
 
         public void AddBackgroundSound(IPlayer theBackgroundSound)
         {
