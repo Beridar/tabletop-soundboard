@@ -11,5 +11,13 @@ namespace Soundboard.Tests
         {
             ResetSubject();
         }
+
+        [Test]
+        public void It_should_take_a_repetitive_sound()
+        {
+            var sound = Mocked<ISound>().Object;
+
+            Subject.AddRecurringSound(sound, PlaybackFrequency.OnlyOnDemand);
+        }
     }
 }
