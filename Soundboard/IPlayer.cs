@@ -35,11 +35,6 @@ namespace Soundboard
             player?.Dispose();
         }
 
-        public void Load(ISound sound)
-        {
-            reader = sound;
-        }
-
         public void Play(ISound sound)
         {
             player.Init(reader);
