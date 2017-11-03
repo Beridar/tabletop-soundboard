@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 using NAudio.Wave;
 
 namespace Soundboard
@@ -18,6 +17,10 @@ namespace Soundboard
     {
         protected ISound reader;
         protected IWavePlayer player;
+
+        public Player() : this(new WaveOut())
+        {
+        }
 
         public Player(IWavePlayer wavePlayer)
         {
