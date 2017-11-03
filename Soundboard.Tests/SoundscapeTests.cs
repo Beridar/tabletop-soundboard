@@ -15,16 +15,16 @@ namespace Soundboard.Tests
         [TestFixture]
         public class BackgroundTests : AutoMoqTestFixture<Soundscape>
         {
-            private Mock<IPlayer> anySound;
-            private Mock<IPlayer> anotherSound;
+            private Mock<ISound> anySound;
+            private Mock<ISound> anotherSound;
 
             [SetUp]
             public void Setup()
             {
                 ResetSubject();
 
-                anySound = Mocked<IPlayer>();
-                anotherSound = Mocked<IPlayer>();
+                anySound = Mocked<ISound>();
+                anotherSound = Mocked<ISound>();
             }
 
             [Test]
