@@ -19,12 +19,18 @@ namespace Soundboard
 
     public class Soundscape : ISoundscape
     {
+        private readonly IPlayer player;
         private readonly IList<IPlayer> backgroundSounds;
         private readonly IList<RecurringSound> recurringSounds;
         private readonly CancellationTokenSource stopWorkersSource;
 
-        public Soundscape()
+        public Soundscape() : this(new Player())
         {
+        }
+
+        public Soundscape(IPlayer player)
+        {
+            this.player = player;
             recurringSounds = new List<RecurringSound>();
             backgroundSounds = new List<IPlayer>();
             stopWorkersSource = new CancellationTokenSource();
