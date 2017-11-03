@@ -72,27 +72,5 @@ namespace Soundboard.Tests
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
         }
-
-        [Test]
-        public void It_should_not_orphan_loaded_sounds_when_disposing()
-        {
-            Subject.Load(Mocked<ISound>().Object);
-            Subject.Dispose();
-
-            Mocked<ISound>().Verify(x => x.Dispose(), Times.AtLeastOnce());
-        }
-
-        [Test]
-        public void It_should_stop_playback_when_disposed()
-        {
-            Subject.Load(Mocked<ISound>().Object);
-            Mocked<IWavePlayer>()
-                .Setup(x => x.PlaybackState)
-                .Returns(PlaybackState.Playing);
-
-            Subject.Dispose();
-            
-            Mocked<IWavePlayer>().Verify(x => x.Stop(), Times.AtLeastOnce());
-        }
     }
 }
