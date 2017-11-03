@@ -40,18 +40,15 @@ namespace Soundboard.Tests
 
                 Subject.Play();
 
-                anySound.Verify(x => x.Play(), Times.AtLeastOnce());
+                Mocked<IPlayer>().Verify(x => x.Play(It.Is<ISound>(y => y == anySound.Object)), Times.AtLeastOnce());
             }
 
             [Test]
             public void Its_playback_status_should_be_playing_when_one_background_sound_is_playing()
             {
-                anySound
+                Mocked<IPlayer>()
                     .Setup(x => x.CurrentPlaybackState)
                     .Returns(PlaybackState.Playing);
-
-                Subject.AddBackgroundSound(anySound.Object);
-                Subject.Play();
 
                 Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Playing);
             }
@@ -85,8 +82,8 @@ namespace Soundboard.Tests
 
                 Subject.Stop();
 
-                anySound.Verify(x => x.Stop(), Times.AtLeastOnce());
-                anotherSound.Verify(x => x.Stop(), Times.AtLeastOnce());
+                Mocked<IPlayer>()
+                    .Verify(x => x.Stop(), Times.AtLeastOnce());
             }
         }
 
