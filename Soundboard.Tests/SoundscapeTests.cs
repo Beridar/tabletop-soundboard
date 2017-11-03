@@ -113,7 +113,7 @@ namespace Soundboard.Tests
 
                 Subject.Play();
 
-                Mocked<ISound>().Verify(x => x.Play(), Times.AtLeastOnce());
+                Mocked<IPlayer>().Verify(x => x.Play(It.Is<ISound>(y => y == Mocked<ISound>().Object)), Times.AtLeastOnce());
             }
 
             [Test]
@@ -123,7 +123,7 @@ namespace Soundboard.Tests
 
                 Subject.Stop();
 
-                Mocked<ISound>().Verify(x => x.Stop(), Times.AtLeastOnce());
+                Mocked<IPlayer>().Verify(x => x.Stop(), Times.AtLeastOnce());
             }
         }
     }
