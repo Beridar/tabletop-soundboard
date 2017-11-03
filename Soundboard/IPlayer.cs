@@ -40,15 +40,15 @@ namespace Soundboard
             reader = sound;
         }
 
-        public void Play()
+        public void Play(ISound sound)
         {
             player.Init(reader);
             player.Play();
         }
 
-        public void PlayToCompletion()
+        public void PlayToCompletion(ISound sound)
         {
-            Play();
+            Play(sound);
 
             while (player.PlaybackState == PlaybackState.Playing)
                 Thread.Sleep(50);
