@@ -59,7 +59,7 @@ namespace Soundboard
             player.Play(anyBackgroundSound);
 
             foreach (var recurring in recurringSounds.Where(x => x.Frequency == PlaybackFrequency.LoopIndefinitely))
-                recurring.Sound.Play();
+                player.Play(recurring.Sound);
         }
 
         public void Stop()
