@@ -53,9 +53,10 @@ namespace Soundboard
 
         public void Play()
         {
-            backgroundSounds
-                .GetAnyRandomElement()
-                ?.Play();
+            var anyBackgroundSound = backgroundSounds
+                .GetAnyRandomElement();
+
+            player.Play(anyBackgroundSound);
 
             foreach (var recurring in recurringSounds.Where(x => x.Frequency == PlaybackFrequency.LoopIndefinitely))
                 recurring.Sound.Play();
