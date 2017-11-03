@@ -20,7 +20,7 @@ namespace Soundboard
     public class Soundscape : ISoundscape
     {
         private readonly IPlayer player;
-        private readonly IList<IPlayer> backgroundSounds;
+        private readonly IList<ISound> backgroundSounds;
         private readonly IList<RecurringSound> recurringSounds;
         private readonly CancellationTokenSource stopWorkersSource;
 
@@ -32,7 +32,7 @@ namespace Soundboard
         {
             this.player = player;
             recurringSounds = new List<RecurringSound>();
-            backgroundSounds = new List<IPlayer>();
+            backgroundSounds = new List<ISound>();
             stopWorkersSource = new CancellationTokenSource();
         }
 
