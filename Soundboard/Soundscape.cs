@@ -12,8 +12,8 @@ namespace Soundboard
         void AddBackgroundSound(IPlayer theBackgroundSound);
         void Play();
         void Stop();
-        void AddRecurringSound(IPlayer soundPlayer);
-        void AddRecurringSound(IPlayer soundPlayer, PlaybackFrequency playbackFrequency);
+        void AddRecurringSound(ISound soundPlayer);
+        void AddRecurringSound(ISound soundPlayer, PlaybackFrequency playbackFrequency);
         IEnumerable<IPlayer> RecurringSounds { get; }
     }
 
@@ -64,12 +64,12 @@ namespace Soundboard
                 sound.Stop();
         }
 
-        public void AddRecurringSound(IPlayer soundPlayer)
+        public void AddRecurringSound(ISound soundPlayer)
         {
             AddRecurringSound(soundPlayer, PlaybackFrequency.OnlyOnDemand);
         }
 
-        public void AddRecurringSound(IPlayer soundPlayer, PlaybackFrequency playbackFrequency)
+        public void AddRecurringSound(ISound soundPlayer, PlaybackFrequency playbackFrequency)
         {
             recurringSounds.Add(new RecurringSound { Frequency = playbackFrequency, Sound = soundPlayer});
         }
