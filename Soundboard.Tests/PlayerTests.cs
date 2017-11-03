@@ -41,8 +41,7 @@ namespace Soundboard.Tests
         {
             var theSoundFile = Mocked<ISound>().Object;
 
-            Subject.Load(theSoundFile);
-            Subject.Play();
+            Subject.Play(theSoundFile);
 
             Mocked<IWavePlayer>().Verify(x => x.Init(theSoundFile));
             Mocked<IWavePlayer>().Verify(x => x.Play());
@@ -55,8 +54,7 @@ namespace Soundboard.Tests
         {
             var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
 
-            Subject.Load(theSoundFile);
-            Subject.PlayToCompletion();
+            Subject.PlayToCompletion(theSoundFile);
 
             Subject.CurrentPlaybackState.ShouldEqual(PlaybackState.Stopped);
         }
@@ -68,8 +66,7 @@ namespace Soundboard.Tests
         {
             var theSoundFile = GetTheSoundImplementationForThisSoundFile(pathToSoundFile);
 
-            Subject.Load(theSoundFile);
-            Subject.Play();
+            Subject.Play(theSoundFile);
             Thread.Sleep(500);
             Subject.Stop();
 
