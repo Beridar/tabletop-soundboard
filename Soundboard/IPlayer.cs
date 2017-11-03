@@ -6,9 +6,8 @@ namespace Soundboard
 {
     public interface IPlayer : IDisposable
     {
-        void Load(ISound sound);
-        void Play();
-        void PlayToCompletion();
+        void Play(ISound sound);
+        void PlayToCompletion(ISound sound);
         void Stop();
         PlaybackState CurrentPlaybackState { get; }
     }
