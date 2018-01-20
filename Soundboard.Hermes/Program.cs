@@ -10,6 +10,9 @@ namespace Soundboard.Hermes
     {
         static void Main(string[] args)
         {
+            using (var @event = new HandleSomethingDying())
+                if (@event.CanHandle(null))
+                    @event.Handle(null);
         }
     }
 }

@@ -8,10 +8,9 @@ using Soundboard;
 
 namespace Soundboard.Hermes
 {
-    class HandleSomethingDying : IEventHandler
+    class HandleSomethingDying : IEventHandler, IDisposable
     {
         private static Dictionary<string, Sound> SoundsByType;
-        private static WaveOutEvent WavePlayer;
 
         static HandleSomethingDying()
         {
@@ -20,16 +19,16 @@ namespace Soundboard.Hermes
                 ["Willhelm"] = new OggSound("willhelm.ogg"),
                 ["Bones01"] = new OggSound("bones tag 01 basic.ogg")
             };
-
-            WavePlayer = new WaveOutEvent();
         }
 
         private readonly Player player;
+        private WaveOutEvent wavePlayer;
 
         public HandleSomethingDying()
         {
-            player = new Player(WavePlayer);
+            wavePlayer = new WaveOutEvent();
 
+            player = new Player(wavePlayer);
             player.Load(SoundsByType.FirstOrDefault().Value);
         }
 
@@ -41,6 +40,11 @@ namespace Soundboard.Hermes
         public void Handle(string @event)
         {
             player.PlayToCompletion();
+        }
+
+        public void Dispose()
+        {
+            wavePlayer.Dispose();
         }
     }
 }
