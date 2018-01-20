@@ -11,8 +11,18 @@ namespace Soundboard.Hermes
         static void Main(string[] args)
         {
             using (var @event = new HandleSomethingDying())
-                if (@event.CanHandle(null))
-                    @event.Handle(null);
+            {
+                ListenForAnyHermesActionsAndHandleWithTheseEvents(new[] { @event });
+            }
+        }
+
+        private static void ListenForAnyHermesActionsAndHandleWithTheseEvents(IEventHandler[] events)
+        {
+            string hermesAction = null;
+
+            foreach (var e in events)
+                if (e.CanHandle(hermesAction))
+                    e.Handle(hermesAction);
         }
     }
 }
