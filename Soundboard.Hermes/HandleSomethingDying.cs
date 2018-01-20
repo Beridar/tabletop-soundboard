@@ -18,12 +18,17 @@ namespace Soundboard.Hermes
         public void Handle(string @event)
         {
             using (var output = new WaveOutEvent())
-            using (var sound = new Player(output))
-            using (var wilhelm = new OggSound("willhelm.ogg"))
+            using (var player = new Player(output))
+            using (var sound = GetTheSoundFileToPlay())
             {
-                sound.Load(wilhelm);
-                sound.PlayToCompletion();
+                player.Load(sound);
+                player.PlayToCompletion();
             }
+        }
+
+        private static ISound GetTheSoundFileToPlay()
+        {
+            return new OggSound("willhelm.ogg");
         }
 
         public void Dispose()
