@@ -1,6 +1,8 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,9 +36,22 @@ namespace Soundboard.Hermes
             }
         }
 
+        private static HttpClient httpClient = new HttpClient();
+
         private static string AskHermesForAnAction()
         {
-            return "yes";
+            string hermesMessage = null;
+
+            Task.Run(async () =>
+            {
+                var httpRequest = new HttpRequestMessage(HttpMethod.Get, @"https://localhost:44392/api/values/1");
+
+                var response = await httpClient.SendAsync(httpRequest);
+
+                hermesMessage = await response.Content.ReadAsStringAsync();
+            }).Wait();
+            
+            return hermesMessage;
         }
     }
 }
