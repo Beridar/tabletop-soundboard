@@ -20,9 +20,23 @@ namespace Soundboard.Hermes
         {
             string hermesAction = null;
 
-            foreach (var e in events)
-                if (e.CanHandle(hermesAction))
-                    e.Handle(hermesAction);
+            while(true)
+            {
+                System.Threading.Thread.Sleep(4000);
+
+                hermesAction = AskHermesForAnAction();
+                if (string.IsNullOrWhiteSpace(hermesAction))
+                    continue;
+
+                foreach (var e in events)
+                    if (e.CanHandle(hermesAction))
+                        e.Handle(hermesAction);
+            }
+        }
+
+        private static string AskHermesForAnAction()
+        {
+            return "yes";
         }
     }
 }

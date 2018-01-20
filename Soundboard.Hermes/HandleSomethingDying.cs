@@ -39,7 +39,9 @@ namespace Soundboard.Hermes
 
         public void Handle(string @event)
         {
-            player.PlayToCompletion();
+            var sound = new Player(new WaveOutEvent());
+            sound.Load(SoundsByType.FirstOrDefault().Value);
+            sound.Play();
         }
 
         public void Dispose()

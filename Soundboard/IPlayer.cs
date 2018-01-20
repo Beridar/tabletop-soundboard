@@ -36,11 +36,11 @@ namespace Soundboard
         public void Load(ISound sound)
         {
             reader = sound;
+            player.Init(reader);
         }
 
         public void Play()
         {
-            player.Init(reader);
             player.Play();
         }
 
