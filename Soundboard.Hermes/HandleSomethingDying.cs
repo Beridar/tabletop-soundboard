@@ -10,28 +10,6 @@ namespace Soundboard.Hermes
 {
     class HandleSomethingDying : IEventHandler, IDisposable
     {
-        private static Dictionary<string, Sound> SoundsByType;
-
-        static HandleSomethingDying()
-        {
-            SoundsByType = new Dictionary<string, Sound>
-            {
-                ["Willhelm"] = new OggSound("willhelm.ogg"),
-                ["Bones01"] = new OggSound("bones tag 01 basic.ogg")
-            };
-        }
-
-        private readonly Player player;
-        private WaveOutEvent wavePlayer;
-
-        public HandleSomethingDying()
-        {
-            wavePlayer = new WaveOutEvent();
-
-            player = new Player(wavePlayer);
-            player.Load(SoundsByType.FirstOrDefault().Value);
-        }
-
         public bool CanHandle(string @event)
         {
             return true;
@@ -39,14 +17,17 @@ namespace Soundboard.Hermes
 
         public void Handle(string @event)
         {
-            var sound = new Player(new WaveOutEvent());
-            sound.Load(SoundsByType.FirstOrDefault().Value);
-            sound.Play();
+            using (var output = new WaveOutEvent())
+            using (var sound = new Player(output))
+            using (var wilhelm = new OggSound("willhelm.ogg"))
+            {
+                sound.Load(wilhelm);
+                sound.PlayToCompletion();
+            }
         }
 
         public void Dispose()
         {
-            wavePlayer.Dispose();
         }
     }
 }

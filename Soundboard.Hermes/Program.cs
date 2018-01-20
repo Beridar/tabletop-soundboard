@@ -22,7 +22,7 @@ namespace Soundboard.Hermes
 
             while(true)
             {
-                System.Threading.Thread.Sleep(4000);
+                System.Threading.Thread.Sleep(100);
 
                 hermesAction = AskHermesForAnAction();
                 if (string.IsNullOrWhiteSpace(hermesAction))
